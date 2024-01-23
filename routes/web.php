@@ -33,4 +33,13 @@ use Illuminate\Support\Facades\Route;
 
 // require __DIR__.'/auth.php';
 
+Route::get('/login', function () {
+    return view('account.Login'); // blade.php
+});
+
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+
+Route::get('/dashboard', function () {
+    return view('account.Dashboard');
+})->middleware('auth:admin')->name('dashboard');
 

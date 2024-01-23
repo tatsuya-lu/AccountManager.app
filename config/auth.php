@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [   // ここ追加
+            'driver' => 'session',
+            'provider' => 'admin_users', // providerに追加した名前
+        ],
     ],
 
     /*
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'admin_users' => [ // ここ追加
+            'driver' => 'eloquent',
+            'model' => App\Models\Account::class, //make:modelしたクラス名
         ],
 
         // 'users' => [
