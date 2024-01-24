@@ -35,11 +35,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', function () {
     return view('account.Login'); // blade.php
-});
+})->middleware('guest:admin');
 
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
 
 Route::get('/dashboard', function () {
     return view('account.Dashboard');
 })->middleware('auth:admin')->name('dashboard');
+
+Route::get('/logout',[\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
