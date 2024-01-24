@@ -48,31 +48,31 @@ Route::get('/logout',[\App\Http\Controllers\LoginController::class, 'logout'])->
 
 Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     // 既存のアカウント一覧表示
-    Route::get('/table', [AccountController::class, 'adminTable'])->name('admin.table');
+    Route::get('/account', [\App\Http\Controllers\AccountController::class, 'adminTable'])->name('account');
 
     // アカウント編集フォーム表示
-    Route::get('/table/{user}/edit', [AccountController::class, 'edit'])->name('admin.table.edit');
+    Route::get('/account/{user}/edit', [\App\Http\Controllers\AccountController::class, 'edit'])->name('account.edit');
 
     // アカウント編集処理
-    Route::put('/table/{user}', [AccountController::class, 'update'])->name('admin.table.update');
+    Route::put('/account/{user}', [\App\Http\Controllers\AccountController::class, 'update'])->name('account.update');
 
     // アカウント削除処理
-    Route::delete('/table/{user}', [AccountController::class, 'destroy'])->name('admin.table.destroy');
+    Route::delete('/account/{user}', [\App\Http\Controllers\AccountController::class, 'destroy'])->name('account.destroy');
 
-    Route::get('/table/register', [AccountController::class, 'adminRegisterForm'])->name('admin.table.register.form');
-    Route::post('/table/register', [AccountController::class, 'adminRegister'])->name('admin.table.register');
+    Route::get('/account/register', [\App\Http\Controllers\AccountController::class, 'adminRegisterForm'])->name('account.register.form');
+    Route::post('/account/register', [\App\Http\Controllers\AccountController::class, 'adminRegister'])->name('account.register');
 
     // お問い合わせ一覧表示
-    Route::get('/inquiry', [InquiryController::class, 'index'])->name('admin.inquiry.index');
+    Route::get('/inquiry', [\App\Http\Controllers\InquiryController::class, 'index'])->name('inquiry.index');
 
     // お問い合わせ編集フォーム表示
-    Route::get('/inquiry/{inquiry}/edit', [InquiryController::class, 'edit'])->name('admin.inquiry.edit');
+    Route::get('/inquiry/{inquiry}/edit', [\App\Http\Controllers\InquiryController::class, 'edit'])->name('inquiry.edit');
 
     // お問い合わせ編集処理
-    Route::put('/inquiry/{inquiry}', [InquiryController::class, 'update'])->name('admin.inquiry.update');
+    Route::put('/inquiry/{inquiry}', [\App\Http\Controllers\InquiryController::class, 'update'])->name('inquiry.update');
 
     // お問い合わせ削除処理
-    Route::delete('/inquiry/{inquiry}', [InquiryController::class, 'destroy'])->name('admin.inquiry.destroy');
+    Route::delete('/inquiry/{inquiry}', [\App\Http\Controllers\InquiryController::class, 'destroy'])->name('inquiry.destroy');
 });
 
 

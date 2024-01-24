@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('title')
+    ダッシュボード
+@endsection
 
-<body>
-    <p>ダッシュボード</p>
-    <ul>
-        <li>{{ Auth::guard('admin')->user()->name }}</li>
-        <li><a href="{{ route('logout') }}">ログアウト</a></li>
-    </ul>
-</body>
-
-</html>
+@section('content')
+    <p class="page-title">HOME</p>
+    <div class="table-menu">
+        <p><a href="{{ route('admin.table.register.form') }}"><span class="regist">アカウント登録</span></a></p>
+        <p><a href="{{ route('admin.table') }}"><span class="summary">アカウント一覧</span></a></p>
+    </div>
+@endsection
