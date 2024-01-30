@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use Illuminate\Support\Facades\Route;
@@ -38,47 +40,47 @@ Route::get('/login', function () {
     return view('account.Login'); // blade.php
 })->middleware('guest:admin');
 
-Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/dashboard', function () {
     return view('account.Dashboard');
-})->middleware('auth:admin');
+})->middleware('auth:admin')->name('dashboard');
 
-Route::get('/logout',[\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
+Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     // 既存のアカウント一覧表示
-    Route::get('/account', [\App\Http\Controllers\AccountController::class, 'adminTable'])->name('account');
+    Route::get('/list', [AccountController::class, 'accountList'])->name('account.list');
 
     // アカウント編集フォーム表示
-    Route::get('/account/{user}/edit', [\App\Http\Controllers\AccountController::class, 'edit'])->name('account.edit');
+    Route::get('/{user}/edit', [AccountController::class, 'edit'])->name('account.edit');
 
     // アカウント編集処理
-    Route::put('/account/{user}', [\App\Http\Controllers\AccountController::class, 'update'])->name('account.update');
+    Route::put('/{user}', [AccountController::class, 'update'])->name('account.update');
 
     // アカウント削除処理
-    Route::delete('/account/{user}', [\App\Http\Controllers\AccountController::class, 'destroy'])->name('account.destroy');
+    Route::delete('/{user}', [AccountController::class, 'destroy'])->name('account.destroy');
 
-    Route::get('/account/register', [\App\Http\Controllers\AccountController::class, 'adminRegisterForm'])->name('account.register.form');
-    Route::post('/account/register', [\App\Http\Controllers\AccountController::class, 'adminRegister'])->name('account.register');
+    Route::get('/register', [AccountController::class, 'registerForm'])->name('account.register.form');
+    Route::post('/register', [AccountController::class, 'register'])->name('account.register');
 
     // お問い合わせ一覧表示
-    Route::get('/inquiry', [\App\Http\Controllers\InquiryController::class, 'index'])->name('inquiry.index');
+    Route::get('/inquiry/list', [InquiryController::class, 'index'])->name('inquiry.list');
 
     // お問い合わせ編集フォーム表示
-    Route::get('/inquiry/{inquiry}/edit', [\App\Http\Controllers\InquiryController::class, 'edit'])->name('inquiry.edit');
+    Route::get('/inquiry/{inquiry}/edit', [InquiryController::class, 'edit'])->name('inquiry.edit');
 
     // お問い合わせ編集処理
-    Route::put('/inquiry/{inquiry}', [\App\Http\Controllers\InquiryController::class, 'update'])->name('inquiry.update');
+    Route::put('/inquiry/{inquiry}', [InquiryController::class, 'update'])->name('inquiry.update');
 
     // お問い合わせ削除処理
-    Route::delete('/inquiry/{inquiry}', [\App\Http\Controllers\InquiryController::class, 'destroy'])->name('inquiry.destroy');
+    Route::delete('/inquiry/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
 });
 
 
 //入力フォームページ
-Route::get('/contact', [\App\Http\Controllers\ContactsController::class, 'index'])->name('contact.index');
+Route::get('/contact', [ContactsController::class, 'index'])->name('contact.index');
 //確認フォームページ
-Route::post('/contact/confirm', [\App\Http\Controllers\ContactsController::class, 'confirm'])->name('contact.confirm');
+Route::post('/contact/confirm', [ContactsController::class, 'confirm'])->name('contact.confirm');
 //送信完了フォームページ
-Route::post('/contact/thanks', [\App\Http\Controllers\ContactsController::class, 'send'])->name('contact.send');
+Route::post('/contact/thanks', [ContactsController::class, 'send'])->name('contact.send');

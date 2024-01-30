@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/*--ここからログイン画面--*/
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #dcfcf3;
+}
+
+.login-container div {
+    margin-bottom: 16px;
+}
+
+.login-container form {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #a0a0a0;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #5bc8ac;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: #ff0000;
+    white-space: nowrap;
+    margin: 5px 0 0 0;
+}
+
+/*--ここまでログイン画面--*/
+
+/*--ここからダッシュボード画面--*/
+
+/*--ここまでダッシュボード画面--*/

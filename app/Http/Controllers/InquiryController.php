@@ -47,18 +47,18 @@ class InquiryController extends Controller
                 }
             })->paginate(20);
 
-        return view('adminInquirylist', compact('inquiries'));
+        return view('account.InquiryList', compact('inquiries'));
     }
 
     public function edit(Post $inquiry)
     {
-        return view('adminEditInquiry', compact('inquiry'));
+        return view('account.InquiryEdit', compact('inquiry'));
     }
 
     public function update(InquiryRequest $request, Post $inquiry)
     {
         $inquiry->update($request->only(['status', 'comment']));
 
-        return redirect()->route('admin.inquiry.index')->with('success', 'お問い合わせ情報が更新されました。');
+        return redirect()->route('inquiry.list')->with('success', 'お問い合わせ情報が更新されました。');
     }
 }

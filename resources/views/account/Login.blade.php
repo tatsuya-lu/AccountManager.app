@@ -1,36 +1,40 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@include('layouts.head')
 
 <body>
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <div class="login-container">
 
-        <label for="email">メールアドレス</label>
-        <input type="email" name="email">
+        @if ($errors->has('error'))
+            <p class="error-message">{{ $errors->first('error') }}</p>
+        @endif
 
-        <label for="password">パスワード</label>
-        <input type="password" name="password">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-        <button type="submit">ログイン</button>
+            <div>
+                <label for="email">Mail</label>
+                <input type="text" id="email" name="email">
 
-    </form>
+                @if ($errors->has('email'))
+                    <p class="error-message">{{ $errors->first('email') }}</p>
+                @endif
+            </div>
 
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+
+                @if ($errors->has('password'))
+                    <p class="error-message">{{ $errors->first('password') }}</p>
+                @endif
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+    </div>
 </body>
 
 </html>

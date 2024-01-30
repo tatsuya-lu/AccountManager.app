@@ -13,7 +13,7 @@ use Config;
 
 class AccountController extends Controller
 {
-    use RegistersUsers;
+    // use RegistersUsers;
 
     protected $prefectures;
     protected $isAdmin;
@@ -35,7 +35,7 @@ class AccountController extends Controller
         return view('account.Register',compact('user', 'prefectures', 'isAdmin'));
     }
 
-    protected function adminRegisterDatabase(array $data)
+    protected function registerDatabase(array $data)
     {
         $user = Account::create([
             'name' => $data['name'],
@@ -58,7 +58,7 @@ class AccountController extends Controller
         return $user;
     }
 
-    public function adminRegister(AccountRequest $request)
+    public function register(AccountRequest $request)
     {
         $user = $this->adminRegisterDatabase($request->all());
 
@@ -71,7 +71,7 @@ class AccountController extends Controller
         }
     }
 
-    public function adminTable(Request $request)
+    public function accountList(Request $request)
     {
 
         $users = Account::orderBy('created_at', 'asc')->where(function ($query) use ($request) {
@@ -91,7 +91,7 @@ class AccountController extends Controller
             }
         })->paginate(20);
 
-        return view('adminTable', compact('users'));
+        return view('account.AccountList', compact('users'));
     }
 
     public function update(AccountRequest $request, Account $user)
