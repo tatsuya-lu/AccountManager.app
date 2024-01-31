@@ -24,7 +24,7 @@ class Account extends Model implements Authenticatable
         'city',
         'street',
         'body',
-        'isAdmin',
+        'admin_level',
     ];
 
     protected $hidden = [
@@ -34,7 +34,7 @@ class Account extends Model implements Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'isAdmin' => 'boolean',
+        'admin_level' => 'boolean',
     ];
 
     public function deleteBookById($id)

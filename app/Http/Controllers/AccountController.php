@@ -13,26 +13,26 @@ use Config;
 
 class AccountController extends Controller
 {
-    // use RegistersUsers;
+    use RegistersUsers;
 
     protected $prefectures;
-    protected $isAdmin;
+    protected $adminLevels;
 
-    protected function __construct()
+    public function __construct()
     {
         $this->prefectures = config('const.prefecture');
-        $this->isAdmin = config('const.isAdmin');
+        $this->adminLevels = config('const.admin_level');
 
-        view()->share(['prefecture' => $this->prefectures, 'isAdmin' => $this->isAdmin]);
+        view()->share(['prefectures' => $this->prefectures, 'admin_levels' => $this->adminLevels]);
     }
 
     public function registerForm(Request $request)
     {
         $user = new Account;
         $prefectures = $this->prefectures;
-        $isAdmin = $this->isAdmin;
+        $adminLevels = $this->adminLevels;
 
-        return view('account.Register',compact('user', 'prefectures', 'isAdmin'));
+        return view('account.Register',compact('user', 'prefectures', 'adminLevels'));
     }
 
     protected function registerDatabase(array $data)
@@ -48,7 +48,7 @@ class AccountController extends Controller
             'city' => $data['city'],
             'street' => $data['street'],
             'body' => $data['body'] !== null ? $data['body'] : '',
-            'isAdmin' => intval($data['isAdmin']),
+            'admin_level' => intval($data['admin_level']),
         ]);
 
         if ($user) {
@@ -79,10 +79,10 @@ class AccountController extends Controller
                 $query->where('name', 'LIKE', '%' . $searchName . '%');
             }
 
-            if ($searchisAdmin = $request->input('search_isAdmin')) {
-                $isAdminValue = is_numeric($searchisAdmin) ? $searchisAdmin : ($searchisAdmin == '社員' ? 'off' : ($searchisAdmin == '管理者' ? 'on' : null));
-                if ($isAdminValue !== null) {
-                    $query->where('admin_level', $isAdminValue);
+            if ($searchAdminLevel = $request->input('search_admin_level')) {
+                $adminLevelValue = is_numeric($searchAdminLevel) ? $searchAdminLevel : ($searchAdminLevel == '社員' ? 'off' : ($searchAdminLevel == '管理者' ? 'on' : null));
+                if ($adminLevelValue !== null) {
+                    $query->where('admin_level', $adminLevelValue);
                 }
             }
 
@@ -106,7 +106,7 @@ class AccountController extends Controller
         $user->city = $request->city;
         $user->street = $request->street;
         $user->body = $request->body;
-        $user->isAdmin = $request->isAdmin;
+        $user->admin_level = $request->admin_level;
 
 
         if ($request->filled('password')) {
@@ -122,9 +122,9 @@ class AccountController extends Controller
     public function edit(Account $user)
     {
         $prefectures = $this->prefectures;
-        $isAdmin = $this->isAdmin;
+        $adminLevels = $this->adminLevels;
 
-        return view('account.Register', compact('user', 'prefectures', 'isAdmin'));
+        return view('account.Register', compact('user', 'prefectures', 'adminLevels'));
     }
 
     public function destroy(Account $user)

@@ -25,7 +25,7 @@ class AccountSeeder extends Seeder
             'city' => '港区',
             'street' => '芝公園',
             'comment' => 'これは備考欄です。',
-            'isAdmin' => 'on',
+            'admin_level' => 'on',
         ]);
     }
 }

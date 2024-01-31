@@ -8,7 +8,7 @@
     <p class="page-title">アカウント一覧</p>
 
     <form method="POST"
-        action="{{ $user->id ? route('admin.table.update', ['user' => $user->id]) : route('admin.table.register.form') }}">
+        action="{{ $user->id ? route('account.update', ['user' => $user->id]) : route('account.register.form') }}">
         @csrf
         @if ($user->id)
             @method('PUT')
@@ -135,7 +135,7 @@
             <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>アカウントの種類</p>
             <select name="admin_level" id="admin_level" class="Form-Item-Input">
                 <option value="" selected disabled>アカウントの種類を選択してください</option>
-                @foreach ($adminLevels as $key => $value)
+                @foreach ($admin_level as $key => $value)
                     <option value="{{ $key }}"
                         {{ old('admin_level', $user->admin_level) == $key ? 'selected' : '' }}>
                         {{ $value }}

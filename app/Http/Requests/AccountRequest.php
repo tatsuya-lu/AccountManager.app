@@ -43,7 +43,7 @@ class AccountRequest extends FormRequest
             'prefecture' => 'required',
             'city' => 'required|string',
             'street' => 'required|string',
-            'isAdmin' => 'required',
+            'admin_level' => 'required',
         ];
     }
 
@@ -77,7 +77,7 @@ class AccountRequest extends FormRequest
             'city.string' => '市区町村は文字列で入力してください。',
             'street.required' => '番地は必須項目です。',
             'street.string' => '番地は文字列で入力してください。',
-            'isAdmin.required' => '管理者レベルは必須項目です。',
+            'admin_level.required' => '管理者レベルは必須項目です。',
         ];
     }
 }

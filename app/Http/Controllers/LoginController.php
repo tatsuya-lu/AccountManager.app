@@ -22,7 +22,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            if ($request->user('admin')?->isAdmin == 'on') {
+            if ($request->user('admin')?->admin_level == 'on') {
                 $request->session()->regenerate();
 
                 return redirect()->intended(RouteServiceProvider::ADMIN_HOME);

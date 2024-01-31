@@ -18,8 +18,8 @@
                 <div class="form-group">
                     <select class="form-control minimal" name="search_admin_level">
                         <option value="" selected>アカウントの種類を選択</option>
-                        <option value="1" {{ request('search_admin_level') == 1 ? 'selected' : '' }}>社員</option>
-                        <option value="2" {{ request('search_admin_level') == 2 ? 'selected' : '' }}>管理者</option>
+                        <option value="off" {{ request('search_admin_level') == 'off' ? 'selected' : '' }}>社員</option>
+                        <option value="on" {{ request('search_admin_level') == 'on' ? 'selected' : '' }}>管理者</option>
                     </select>
                 </div>
 
@@ -31,7 +31,7 @@
             </form>
         </div>
 
-        <a href="{{ route('admin.table.register.form') }}">
+        <a href="{{ route('account.register.form') }}">
             <p class="regist-btn"><span class="fa-solid fa-circle-plus"></span>新規作成</p>
         </a>
     </div>
@@ -65,12 +65,12 @@
             @foreach ($users as $user)
                 <tr>
                     <td class="table-center">
-                        <a href="{{ route('admin.table.edit', $user->id) }}">
+                        <a href="{{ route('account.edit', $user->id) }}">
                             <span class="fa-solid fa-pen-to-square"></span>
                         </a>
                     </td>
                     <td class="table-center">
-                        <form method="POST" action="{{ route('admin.table.destroy', $user->id) }}"
+                        <form method="POST" action="{{ route('account.destroy', $user->id) }}"
                             onsubmit="return confirm('削除します。よろしいですか？')">
                             @csrf
                             @method('DELETE')
@@ -81,9 +81,9 @@
                     </td>
                     <td>{{ $user->name }}</td>
                     <td>
-                        @if ($user->admin_level == 1)
+                        @if ($user->admin_level === 'off')
                             社員
-                        @elseif ($user->admin_level == 2)
+                        @elseif ($user->admin_level == 'on')
                             管理者
                         @endif
                     </td>

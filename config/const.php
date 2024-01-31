@@ -63,7 +63,7 @@ return [
         'checking' => '対応中',
         'checked' => '対応済み',
     ],
-    'isAdmin' => [
+    'admin_level' => [
         'on' => '管理者',
         'off' => '社員',
     ],
