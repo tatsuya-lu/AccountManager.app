@@ -10,6 +10,8 @@
 
     <title>@yield('title')</title>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/d8cd936af6.js" crossorigin="anonymous"></script>
 
     <!-- reset.css ress -->
@@ -19,31 +21,39 @@
 
 <body>
     <div class="container">
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="fa-solid fa-bars"></span>
+
+        <div class="side-menu-container">
+            <aside class="sidebar">
+                <div class="side-toggle-btn">
+                    <p><span class="fa-solid fa-bars"></span></p>
+                    <p><span class="fa-solid fa-xmark"></span></p>
+                </div>
+
+                <ul>
+                    <a href="{{ route('dashboard') }}">
+                        <li><span class="fa-solid fa-house"></span>HOME</li>
+                    </a>
+                    <a href="{{ route('account.list') }}">
+                        <li><span class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</li>
+                    </a>
+                    <a href="{{ route('inquiry.list') }}">
+                        <li><span class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</li>
+                    </a>
+                </ul>
+            </aside>
         </div>
 
-        <aside class="sidebar">
-            <a href="{{ route('dashboard') }}">
-                <p><span class="fa-solid fa-house"></span>HOME</p>
-            </a>
-            <a href="{{ route('account.list') }}">
-                <p><span class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</p>
-            </a>
-            <a href="{{ route('inquiry.list') }}">
-                <p><span class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</p>
-            </a>
-        </aside>
+        <div class="main-container">
+            <header>
+                <p>ログイン中：管理者 {{ Auth::guard('admin')->user()->name }}</p>
+                <p><a href="{{ route('logout') }}"><span class="logout-btn">ログアウト</span></a></p>
+            </header>
 
-        <main>
-            <p>ログイン中：管理者 {{ Auth::guard('admin')->user()->name }}</p>
-            <p><a href="{{ route('logout') }}"><span class="logout-btn">ログアウト</span></a></p>
-            <div class="main-aria">
+            <main>
                 @yield('content')
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
-
 </body>
 
 </html>

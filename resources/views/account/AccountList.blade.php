@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-    <div class="table-title">
-        <p class="page-title">アカウント一覧</p>
+    <p class="page-title">アカウント一覧</p>
 
+    <div class="serch-space">
         <div class="search-form">
-            <form class="">
+            <form>
                 <div class="form-group">
                     <input type="search" class="form-control" name="search_name" value="{{ request('search_name') }}"
                         placeholder="名前を入力" aria-label="名前を検索...">
@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                     <select class="form-control minimal" name="search_admin_level">
-                        <option value="" selected>アカウントの種類を選択</option>
+                        <option selected>アカウントの種類を選択</option>
                         <option value="off" {{ request('search_admin_level') == 'off' ? 'selected' : '' }}>社員</option>
                         <option value="on" {{ request('search_admin_level') == 'on' ? 'selected' : '' }}>管理者</option>
                     </select>
@@ -27,14 +27,18 @@
                     <input type="search" class="form-control" name="search_email" value="{{ request('search_email') }}"
                         placeholder="メールアドレスを入力" aria-label="メールアドレスを検索...">
                 </div>
-                <input type="submit" value="検索" class="">
+
+                <div class="form-group">
+                    <input type="submit" value="検索">
+                </div>
             </form>
         </div>
 
-        <a href="{{ route('account.register.form') }}">
-            <p class="regist-btn"><span class="fa-solid fa-circle-plus"></span>新規作成</p>
-        </a>
+        <div class="new-register-btn">
+            <p><a href="{{ route('account.register.form') }}"><span class="fa-solid fa-circle-plus"></span>新規作成</a></p>
+        </div>
     </div>
+
 
 
     @if (session('registered_message'))
@@ -49,8 +53,8 @@
         </div>
     @endif
 
-    <div class="table">
-        <table class="account">
+    <div class="table-list">
+        <table>
             <tr>
                 <th>編集</th>
                 <th>削除</th>
@@ -74,7 +78,7 @@
                             onsubmit="return confirm('削除します。よろしいですか？')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="no-border">
+                            <button type="submit">
                                 <span class="fa-solid fa-trash-can"></span>
                             </button>
                         </form>

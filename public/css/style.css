@@ -3,8 +3,65 @@
 body {
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     background-color: #fff;
+    color: #666363;
+    /*フォントは後で要調整*/
+}
+
+a {
+    text-decoration: none;
+    color: #666363;
+}
+
+.container {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    /* サイドメニューとメインコンテンツの割合を指定 */
+}
+
+header {
+    text-align: right;
+}
+
+header p {
+    margin: 8px 25px 12px 0;
+}
+
+.logout-btn {
+    border-radius: 3px;
+    padding: 8px 15px 8px 15px;
+    background-color: rgba(241, 116, 116, 0.3);
+}
+
+.page-title {
+    font-size: 23px;
+    margin: 20px 10px 20px 0;
+    border-bottom: 1px solid #666363;
+}
+
+.main-content-aria {
+    margin-right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+}
+
+.error-message {
+    color: #ff0000;
+    white-space: nowrap;
+    margin: 5px 0 0 0;
+}
+
+.success {
+    border-radius: 6px;
+    margin: 0 0 20px 50px;
+    padding: 5px 0;
+    max-width: 90%;
+    text-align: center;
+    align-items: center;
+    background: #5bc8ac;
+    color: #fff;
 }
 
 /*--ここからログイン画面--*/
@@ -55,14 +112,213 @@ body {
     cursor: pointer;
 }
 
-.error-message {
-    color: #ff0000;
-    white-space: nowrap;
-    margin: 5px 0 0 0;
+/*--ここまでログイン画面--*/
+
+/*--ここからサイドメニュー--*/
+
+.sidebar {
+    max-width: 250px;
+    height: 100%;
+    background-color: #5bc8ac;
+    position: fixed;
 }
 
-/*--ここまでログイン画面--*/
+.side-toggle-btn {
+    color: #fff;
+    font-size: 25px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.sidebar li {
+    color: #fff;
+    list-style: none;
+}
+
+.sidebar li span {
+    margin: 0 10px 0 10px;
+}
+
+.sidebar a {
+    padding: 10px;
+    border-bottom: 1px solid #a0a0a0;
+    display: block;
+    margin-right: 30px;
+}
+
+.sidebar a:hover {
+    background-color: #a0a0a0;
+}
+
+/*--ここまでサイドメニュー--*/
+
 
 /*--ここからダッシュボード画面--*/
 
+.dashboard {
+    height: 500px;
+    /*コンテンツ追加時に調整*/
+}
+
 /*--ここまでダッシュボード画面--*/
+
+/*--ここからアカウント登録画面--*/
+
+
+
+/*--ここまでアカウント登録画面--*/
+
+/*--ここからアカウント・お問い合わせ一覧画面--*/
+
+.search-form-space {
+    position: relative;
+}
+
+.new-register-btn {
+    position: absolute;
+    top: 150px;
+    right: 20px;
+    border-radius: 6px;
+    padding: 8px;
+    letter-spacing: 0.05em;
+    background-color: #5bc8ac;
+    text-align: center;
+    max-width: fit-content;
+    /*位置調整方法を要検討*/
+}
+
+.new-register-btn a{
+    color: #fff;
+}
+
+.new-register-btn span {
+    margin-right: 5px;
+}
+
+.table-list {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-spacing: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+table th {
+    border: 0.5px solid #bbbfc2;
+    text-align: center;
+    padding: 5px 15px;
+    background-color: #e0e0e0;
+}
+
+table td {
+    border: 0.5px solid #bbbfc2;
+    background-color: #fff;
+    padding: 10px 8px 10px 8px;
+}
+
+.fa-trash-can {
+    color: red;
+    font-size: 1.2em;
+}
+
+.fa-pen-to-square {
+    font-size: 1.2em;
+}
+
+.table-center {
+    text-align: center;
+}
+
+.pagenation {
+    
+}
+
+/*--ここまでアカウント・お問い合わせ一覧画面--*/
+
+/*--ここから検索機能--*/
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-form form {
+    display: flex;
+}
+
+.form-group {
+    margin-right: 25px;
+}
+
+.search-form select{
+    width: 270px;
+}
+
+.search-form input[type="search"],
+.search-form select {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    height: 42px;
+}
+
+.search-form input[type="submit"] {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 18px;
+    background-color: #5bc8ac;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #4ca594;
+}
+
+select.minimal {
+    background-image:
+        linear-gradient(45deg, transparent 50%, #808080 50%),
+        linear-gradient(135deg, #808080 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc);
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+    background-image:
+        linear-gradient(45deg, #5bc8ac 50%, transparent 50%),
+        linear-gradient(135deg, transparent 50%, #5bc8ac 50%),
+        linear-gradient(to right, #ccc, #ccc);
+    background-position:
+        calc(100% - 15px) 1em,
+        calc(100% - 20px) 1em,
+        calc(100% - 2.5em) 0.5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+    border-color: #5bc8ac;
+    outline: 0;
+}
+
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+/*--ここまで検索機能--*/
