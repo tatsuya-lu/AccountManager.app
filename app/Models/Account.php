@@ -23,7 +23,7 @@ class Account extends Model implements Authenticatable
         'prefecture',
         'city',
         'street',
-        'body',
+        'comment',
         'admin_level',
     ];
 

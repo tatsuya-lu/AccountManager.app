@@ -47,8 +47,8 @@ class AccountController extends Controller
             'prefecture' => $data['prefecture'],
             'city' => $data['city'],
             'street' => $data['street'],
-            'body' => $data['body'] !== null ? $data['body'] : '',
-            'admin_level' => intval($data['admin_level']),
+            'comment' => $data['comment'] !== null ? $data['comment'] : '',
+            'admin_level' => $data['admin_level'],
         ]);
 
         if ($user) {
@@ -60,14 +60,14 @@ class AccountController extends Controller
 
     public function register(AccountRequest $request)
     {
-        $user = $this->adminRegisterDatabase($request->all());
+        $user = $this->registerDatabase($request->all());
 
         if ($user) {
             session()->flash('registered_message', 'アカウントが正常に登録されました。');
             session()->flash('registered_email', $user->email);
-            return redirect()->route('account');
+            return redirect()->route('account.list');
         } else {
-            return redirect()->route('account')->with('error', 'ユーザーの登録に失敗しました。');
+            return redirect()->route('account.list')->with('error', 'ユーザーの登録に失敗しました。');
         }
     }
 
@@ -105,7 +105,7 @@ class AccountController extends Controller
         $user->post_code = $request->post_code;
         $user->city = $request->city;
         $user->street = $request->street;
-        $user->body = $request->body;
+        $user->comment = $request->comment;
         $user->admin_level = $request->admin_level;
 
 
@@ -116,7 +116,7 @@ class AccountController extends Controller
 
         $user->save();
 
-        return redirect()->route('table')->with('success', 'ユーザーが正常に更新されました。');
+        return redirect()->route('account.list')->with('success', 'ユーザーが正常に更新されました。');
     }
 
     public function edit(Account $user)
@@ -134,7 +134,7 @@ class AccountController extends Controller
         $user->delete();
 
         // 削除後にリダイレクト
-        return redirect()->route('table')->with('success', 'ユーザーが正常に削除されました。');
+        return redirect()->route('account.list')->with('success', 'ユーザーが正常に削除されました。');
     }
 
 }
