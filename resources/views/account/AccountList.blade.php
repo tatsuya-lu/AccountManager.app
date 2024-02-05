@@ -7,7 +7,9 @@
 @section('content')
     <p class="page-title">アカウント一覧</p>
 
-    <div class="serch-space">
+    
+
+        
         <div class="search-form">
             <form>
                 <div class="form-group">
@@ -32,12 +34,12 @@
                     <input type="submit" value="検索">
                 </div>
             </form>
+
+            <div class="new-register-btn">
+                <p><a href="{{ route('account.register.form') }}"><span class="fa-solid fa-circle-plus"></span>新規作成</a></p>
+            </div>
         </div>
 
-        <div class="new-register-btn">
-            <p><a href="{{ route('account.register.form') }}"><span class="fa-solid fa-circle-plus"></span>新規作成</a></p>
-        </div>
-    </div>
 
 
 

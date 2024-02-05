@@ -18,10 +18,10 @@
     <form method="POST" action="{{ route('admin.inquiry.update', $inquiry->id) }}">
         @csrf
         @method('PUT')
-        <div class="Form">
+        <div class="form">
 
             <div class="Inquiry-Item">
-                <label for="status" class="Form-Item-Label sub_title">ステータス</label>
+                <label for="status" class=" sub_title">ステータス</label>
                 <select name="status" id="status" class="Inquiry-Form-Item-Input">
                     @foreach (config('const.status') as $statusKey => $statusLabel)
                         <option value="{{ $statusKey }}" {{ $inquiry->status === $statusKey ? 'selected' : '' }}>
@@ -32,12 +32,12 @@
             </div>
 
             <div class="Inquiry-Item">
-                <label for="body" class="Form-Item-Label sub_title">お問い合わせ内容</label>
+                <label for="body" class=" sub_title">お問い合わせ内容</label>
                 <p class="Inquiry-font">{{ $inquiry->body }}</p>
             </div>
 
             <div class="Inquiry-Item">
-                <label for="comment" class="Form-Item-Label sub_title">備考欄</label>
+                <label for="comment" class=" sub_title">備考欄</label>
                 <textarea name="comment" id="comment" class="Inquiry-Form-Item-Textarea">{{ $inquiry->comment }}</textarea>
             </div>
 
@@ -46,36 +46,35 @@
             </div>
 
             <div class="Inquiry-Item">
-                <label for="company" class="Form-Item-Label Inquiry-Label">会社名:{{ $inquiry->company }}</label>
+                <label for="company" class=" Inquiry-Label">会社名:{{ $inquiry->company }}</label>
             </div>
 
             <div class="Inquiry-Item">
-                <label for="name" class="Form-Item-Label Inquiry-Label">氏名:{{ $inquiry->name }}</label>
+                <label for="name" class=" Inquiry-Label">氏名:{{ $inquiry->name }}</label>
             </div>
 
             <div class="Inquiry-Item">
-                <label for="tel" class="Form-Item-Label Inquiry-Label">電話番号:{{ $inquiry->tel }}</label>
+                <label for="tel" class=" Inquiry-Label">電話番号:{{ $inquiry->tel }}</label>
             </div>
 
             <div class="Inquiry-Item">
-                <label for="email" class="Form-Item-Label Inquiry-Label">メールアドレス:{{ $inquiry->email }}</label>
+                <label for="email" class=" Inquiry-Label">メールアドレス:{{ $inquiry->email }}</label>
             </div>
 
             <div class="Inquiry-Item">
-                <label for="birthday" class="Form-Item-Label Inquiry-Label">生年月日:{{ $inquiry->birthday }}</label>
+                <label for="birthday" class=" Inquiry-Label">生年月日:{{ $inquiry->birthday }}</label>
             </div>
 
             <div class="Inquiry-Item">
-                <label for="gender"
-                    class="Form-Item-Label Inquiry-Label">性別:{{ config('const.gender.' . $inquiry->gender) }}</label>
+                <label for="gender" class=" Inquiry-Label">性別:{{ config('const.gender.' . $inquiry->gender) }}</label>
             </div>
 
             <div class="Inquiry-Item">
                 <label for="profession"
-                    class="Form-Item-Label Inquiry-Label">職業:{{ config('const.profession.' . $inquiry->profession) }}</label>
+                    class=" Inquiry-Label">職業:{{ config('const.profession.' . $inquiry->profession) }}</label>
             </div>
 
-            <input type="submit" class="Form-Btn" value="更新">
+            <input type="submit" class="form-btn" value="更新">
         </div>
     </form>
 @endsection

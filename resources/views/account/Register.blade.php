@@ -148,7 +148,7 @@
                 @endif
             </div>
 
-            <input type="submit" class="Form-Btn" value="{{ $user->id ? '更新する' : '確認する' }}">
+            <input type="submit" class="form-btn" value="{{ $user->id ? '更新する' : '確認する' }}">
         </form>
 
     </div>

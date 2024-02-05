@@ -20,13 +20,13 @@
                 </div>
 
                 <div class="form-group search_group_sub">
-                    <input type="search" class="" name="search_company" value="{{ request('search_company') }}"
-                        placeholder="会社名を入力" aria-label="会社名検索">
+                    <input type="search" name="search_company" value="{{ request('search_company') }}" placeholder="会社名を入力"
+                        aria-label="会社名検索">
                 </div>
 
                 <div class="form-group search_group_sub">
-                    <input type="search" class="" name="search_tel" value="{{ request('search_tel') }}"
-                        placeholder="電話番号を入力" aria-label="電話番号検索">
+                    <input type="search" name="search_tel" value="{{ request('search_tel') }}" placeholder="電話番号を入力"
+                        aria-label="電話番号検索">
                 </div>
 
                 <div class="form-group">

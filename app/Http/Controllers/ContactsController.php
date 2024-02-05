@@ -56,8 +56,7 @@ class ContactsController extends Controller
                 ->route('contact.index')
                 ->withInput($inputs);
         } else {
-            //入力されたメールアドレスにメールを送信
-            // \Mail::to($inputs['email'])->send(new ContactsSendmail($inputs));
+            //メール送信機能は実装機能はひとまず実装せず、後々要検討。
 
             //再送信を防ぐためにトークンを再発行
             $request->session()->regenerateToken();
