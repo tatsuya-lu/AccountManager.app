@@ -21,16 +21,17 @@ a {
 }
 
 header {
-    text-align: right;
+    display: flex;
+    justify-content: end;
 }
 
 header p {
-    margin: 8px 25px 12px 0;
+    margin: 25px 20px 17px 0;
 }
 
 .logout-btn {
-    border-radius: 3px;
-    padding: 8px 15px 8px 15px;
+    border-radius: 6px;
+    padding: 10px 15px;
     background-color: rgba(241, 116, 116, 0.3);
 }
 
@@ -206,15 +207,17 @@ header p {
 }
 
 .form-item textarea {
+    padding-top: 0.8em;
     height: 216px;
 }
 
 .form-btn {
     border-radius: 6px;
+    font-weight: bold;
+    margin-top: 10px;
     margin-bottom: 10px;
-    padding: 8px 5px;
-    width: fit-content;
-    display: block;
+    padding: 10px;
+    width: 115px;
     letter-spacing: 0.05em;
     background-color: #5bc8ac;
     color: #fff;
@@ -288,6 +291,57 @@ table td {
 .pagenation {}
 
 /*--ここまでアカウント・お問い合わせ一覧画面--*/
+
+/*--ここからお問い合わせ編集--*/
+
+.inquiry-container {
+    margin-right: 25px;
+    display: flex;
+}
+
+.inquiry-form {
+    flex: 1;
+}
+
+.form-item {
+    max-width: 720px;
+}
+
+.form-item-textarea {
+    padding-top: 0.8em;
+    height: 216px;
+}
+
+.inquiry-info {
+    border-left: 1px solid #a0a0a0;
+    max-width: 720px;
+    padding: 10px 20px;
+    margin-top: 25px;
+    max-height: 720px;
+    flex: 2;
+}
+
+.inquiry-info p {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.inquiry-info label {
+    font-weight: bold;
+}
+
+.inquiry-info .sub-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.inquiry-info .info-item {
+    margin-bottom: 15px;
+}
+
+/*--ここまでお問い合わせ編集--*/
 
 /*--ここから検索機能--*/
 
@@ -410,7 +464,7 @@ select:-moz-focusring {
     border-bottom: 1px solid #ddd;
 }
 
-.contact-thanks  .form-item{
+.contact-thanks .form-item {
     padding-top: 8px;
     padding-bottom: 8px;
 }

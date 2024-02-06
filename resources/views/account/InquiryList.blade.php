@@ -54,7 +54,7 @@
             @foreach ($inquiries as $inquiry)
                 <tr>
                     <td class="table-center">
-                        <a href="{{ route('admin.inquiry.edit', $inquiry->id) }}">
+                        <a href="{{ route('inquiry.edit', $inquiry->id) }}">
                             <span class="fa-solid fa-pen-to-square"></span>
                         </a>
                     </td>

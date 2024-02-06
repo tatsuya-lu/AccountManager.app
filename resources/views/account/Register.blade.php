@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <p class="page-title">アカウント一覧</p>
+    <p class="page-title">アカウント登録</p>
 
     <div class="register-form">
 

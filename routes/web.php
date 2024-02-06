@@ -77,7 +77,7 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     Route::delete('/inquiry/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
 });
 
-
+//prefexでまとめる？
 //入力フォームページ
 Route::get('/contact', [ContactsController::class, 'index'])->name('contact.index');
 //確認フォームページ
