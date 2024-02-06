@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\AccountRequest;
+use Illuminate\Pagination\Paginator;
 use Config;
 
 class AccountController extends Controller

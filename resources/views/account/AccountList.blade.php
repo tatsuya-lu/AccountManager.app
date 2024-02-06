@@ -102,5 +102,5 @@
             @endforeach
         </table>
     </div>
-    <div class="pagenation">{{ $users->appends(request()->input())->links() }}</div>
+    <div class="pagenation">{{ $users->appends(request()->input())->links('vendor.pagination.tailwind') }}</div>
 @endsection
