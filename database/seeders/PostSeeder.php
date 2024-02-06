@@ -2,13 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
-class AccountSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +15,9 @@ class AccountSeeder extends Seeder
     public function run(): void
     {
         // 既存のデータを削除
-        DB::table('accounts')->truncate();
+        DB::table('posts')->truncate();
 
         // シーダーの内容をここに追加
-        Account::factory()->count(100)->create();
+        Post::factory()->count(100)->create();
     }
 }
