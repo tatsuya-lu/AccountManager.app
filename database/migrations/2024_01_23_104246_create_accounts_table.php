@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('street');
             $table->text('comment')->nullable();
-            $table->enum('admin_level', ['on', 'off'])->default('off'); // enum型のカラムを使い[on・off]で判定。
+            $table->enum('admin_level', ['on', 'off'])->default('off'); 
             $table->rememberToken();
             $table->timestamps();
         });

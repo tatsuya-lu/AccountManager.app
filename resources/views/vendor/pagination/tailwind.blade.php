@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex items-center justify-between">
-        <div class="flex justify-between flex-1 sm:hidden">
+        <div class="flex justify-between flex-1 sm:hidden item-float-right">
             @if ($paginator->onFirstPage())
                 <span
                     class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
@@ -40,13 +40,13 @@
             @endif
         </div>
 
-        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between item-float-right2">
             <div>
                 {{-- ★日本語修正★ --}}
                 <p class="text-sm text-gray-700 leading-5">
                     表示中
                     @if ($paginator->total() > 0)
-                        {{ $paginator->firstItem() }} ～ {{ $paginator->lastItem() }} 件中
+                        {{ $paginator->firstItem() }} ～ {{ $paginator->lastItem() }} 件
                     @else
                         0 件
                     @endif

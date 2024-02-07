@@ -22,19 +22,9 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            if ($request->user('admin')?->admin_level == 'on') {
-                $request->session()->regenerate();
-
-                return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
-            } else {
-                Auth::guard('admin')->logout();
-
-                $request->session()->regenerate();
-
-                return back()->withErrors([
-                    'error' => 'このアカウントには権限がないためログインできません。',
-                ]);
-            }
+            $request->session()->regenerate();
+    
+            return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         }
 
         return back()->withErrors([

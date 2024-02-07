@@ -87,7 +87,7 @@
                     </td>
                     <td>{{ $user->name }}</td>
                     <td>
-                        @if ($user->admin_level === 'off')
+                        @if ($user->admin_level == 'off')
                             社員
                         @elseif ($user->admin_level == 'on')
                             管理者
