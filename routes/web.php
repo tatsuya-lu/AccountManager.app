@@ -53,13 +53,13 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     Route::get('/list', [AccountController::class, 'accountList'])->name('account.list');
 
     // アカウント編集フォーム表示
-    Route::get('/{user}/edit', [AccountController::class, 'edit'])->name('account.edit');
+    Route::get('/{user}/edit', [AccountController::class, 'edit'])->name('account.edit')->middleware('account.authorization');
 
     // アカウント編集処理
-    Route::put('/{user}', [AccountController::class, 'update'])->name('account.update');
+    Route::put('/{user}', [AccountController::class, 'update'])->name('account.update')->middleware('account.authorization');
 
     // アカウント削除処理
-    Route::delete('/{user}', [AccountController::class, 'destroy'])->name('account.destroy');
+    Route::delete('/{user}', [AccountController::class, 'destroy'])->name('account.destroy')->middleware('account.authorization');
 
     Route::get('/register', [AccountController::class, 'registerForm'])->name('account.register.form');
     Route::post('/register', [AccountController::class, 'register'])->name('account.register');
