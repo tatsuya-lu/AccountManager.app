@@ -87,11 +87,13 @@
                     </td>
                     <td>{{ $user->name }}</td>
                     <td>
-                        @if ($user->admin_level == 'off')
-                            社員
-                        @elseif ($user->admin_level == 'on')
-                            管理者
-                        @endif
+                        <td>
+                            @if ($user->admin_level == 1)
+                                管理者
+                            @elseif ($user->admin_level == 2)
+                                社員
+                            @endif
+                        </td>
                     </td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->tel }}</td>

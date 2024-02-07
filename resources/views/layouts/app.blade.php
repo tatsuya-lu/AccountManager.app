@@ -45,7 +45,7 @@
 
         <div class="main-container">
             <header>
-                <p>ログイン中：管理者 {{ Auth::guard('admin')->user()->name }}</p>
+                <p>ログイン中： {{ Auth::guard('admin')->user()->name }}</p>
                 <p><a href="{{ route('logout') }}"><span class="logout-btn">ログアウト</span></a></p>
             </header>
 

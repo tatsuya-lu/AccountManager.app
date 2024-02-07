@@ -34,7 +34,6 @@ class Account extends Model implements Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'admin_level' => 'boolean',
     ];
 
     public function deleteBookById($id)

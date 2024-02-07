@@ -38,7 +38,7 @@ class AccountFactory extends Factory
             'password' => Hash::make('password'),
             'tel' => $phoneNumberWithoutHyphen,
             'post_code' => $postCodeWithoutHyphen,
-            'prefecture' => $this->faker->randomElement(array_keys(Config::get('const.prefecture'))),
+            'prefecture' => $this->faker->randomElement($prefectures),
             'city' => $this->faker->city,
             'street' => $this->faker->streetAddress,
             'comment' => 'これは備考欄です。',

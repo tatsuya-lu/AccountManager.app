@@ -49,7 +49,7 @@ class AccountController extends Controller
             'city' => $data['city'],
             'street' => $data['street'],
             'comment' => $data['comment'] !== null ? $data['comment'] : '',
-            'admin_level' => $data['admin_level'],
+            'admin_level' => intval($data['admin_level']),
         ]);
 
         if ($user) {
@@ -81,7 +81,7 @@ class AccountController extends Controller
             }
 
             if ($searchAdminLevel = $request->input('search_admin_level')) {
-                $adminLevelValue = is_numeric($searchAdminLevel) ? $searchAdminLevel : ($searchAdminLevel == '社員' ? 'off' : ($searchAdminLevel == '管理者' ? 'on' : null));
+                $adminLevelValue = is_numeric($searchAdminLevel) ? $searchAdminLevel : ($searchAdminLevel == '社員' ? 1 : ($searchAdminLevel == '管理者' ? 2 : null));
                 if ($adminLevelValue !== null) {
                     $query->where('admin_level', $adminLevelValue);
                 }
