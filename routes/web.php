@@ -75,6 +75,13 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
 
     // お問い合わせ削除処理
     Route::delete('/inquiry/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
+
+    Route::get('/notification', [NotificationController::class, 'index'])->name('notification.index');
+
+    Route::get('/notification/list', [NotificationController::class, 'list'])->name('notification.list');
+
+    Route::get('/notification/{notification}', [NotificationController::class, 'show'])->name('notification.show');
+    
 });
 
 //prefexでまとめる？

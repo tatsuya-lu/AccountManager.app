@@ -16,7 +16,7 @@ class AccountSeeder extends Seeder
     public function run(): void
     {
         // 既存のデータを削除
-        DB::table('accounts')->truncate();
+        DB::table('accounts')->delete();
 
         // シーダーの内容をここに追加
         Account::factory()->count(100)->create();

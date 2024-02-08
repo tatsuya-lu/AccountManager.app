@@ -20,8 +20,8 @@
                 <div class="form-group">
                     <select class="form-control minimal" name="search_admin_level">
                         <option selected>アカウントの種類を選択</option>
-                        <option value="off" {{ request('search_admin_level') == 'off' ? 'selected' : '' }}>社員</option>
-                        <option value="on" {{ request('search_admin_level') == 'on' ? 'selected' : '' }}>管理者</option>
+                        <option value="1" {{ request('search_admin_level') == 1 ? 'selected' : '' }}>管理者</option>
+                        <option value="2" {{ request('search_admin_level') == 2 ? 'selected' : '' }}>社員</option>
                     </select>
                 </div>
 
