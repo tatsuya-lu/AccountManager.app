@@ -63,9 +63,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a>
-                                    全てのお知らせを見る
-                                </a>
+                                <button @click="fetchAllNotifications">全てのお知らせを見る</button>
+                            </li>
+                            <li>
+                                <button @click="resetNotifications">元に戻す</button>
                             </li>
                         </ul>
                     </nav>
@@ -100,7 +101,23 @@
                         .catch(error => {
                             console.error('Error fetching notifications:', error);
                         });
-                }
+                },
+                fetchAllNotifications() {
+                    const url = '{{ route('notification.all') }}';
+                    axios.get(url)
+                        .then(response => {
+                            console.log(response.data); // レスポンスデータをコンソールログに出力
+                            this.notifications = response.data;
+                            this.showDropdown = true; // Always show dropdown after fetching all notifications
+                        })
+                        .catch(error => {
+                            console.error('Error fetching all notifications:', error);
+                        });
+                },
+                resetNotifications() {
+                    this.fetchNotifications(); // 元に戻すために通常のお知らせを再度取得
+                    this.showDropdown = false; // ドロップダウンを閉じる
+                },
             },
             mounted() {
                 this.fetchNotifications();
