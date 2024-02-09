@@ -480,6 +480,44 @@ select:-moz-focusring {
 
 /*--ここからお知らせ機能--*/
 
+.notification-aria {
+    position: relative;
+    margin: 20px 20px 0 20px;
+}
+
+.notification-aria li {
+    list-style: none;
+    font-size: 18px;
+}
+
+.notification-aria .fa-bell {
+    font-size: 1.5em;
+}
+
+.notification-badge {
+    position: absolute;
+    top: 8px;
+    left: 17px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 5px;
+    font-size: 12px;
+}
+
+.notification-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    /* メニューがトリガーボタンの下に表示されるように調整 */
+    right: 0;
+    z-index: 999;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 700px;
+}
 
 
 /*--ここまでお知らせ機能--*/

@@ -61,11 +61,19 @@ class NotificationController extends Controller
         }
 
         return Notification::whereHas('reads', function ($query) use ($user) {
-                $query->where('user_id', $user->id)
-                    ->where('read', false);
-            })
+            $query->where('user_id', $user->id)
+                ->where('read', false);
+        })
             ->orderBy('created_at', 'desc')
             ->orderBy('id', 'desc')
             ->paginate(7);
+    }
+
+    public function showAllNotifications()
+    {
+        // すべてのお知らせを取得して返す
+        $notifications = Notification::orderBy('created_at', 'desc')->get();
+
+        return response()->json($notifications);
     }
 }
