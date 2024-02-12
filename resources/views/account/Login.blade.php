@@ -14,7 +14,7 @@
             @csrf
 
             <div>
-                <label for="email">Mail</label>
+                <label for="email">メールアドレス</label>
                 <input type="text" id="email" name="email">
 
                 @if ($errors->has('email'))
@@ -23,7 +23,7 @@
             </div>
 
             <div>
-                <label for="password">Password</label>
+                <label for="password">パスワード</label>
                 <input type="password" id="password" name="password">
 
                 @if ($errors->has('password'))
@@ -31,7 +31,7 @@
                 @endif
             </div>
 
-            <button type="submit">Login</button>
+            <button type="submit">ログイン</button>
         </form>
 
     </div>

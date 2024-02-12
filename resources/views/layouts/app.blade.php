@@ -23,30 +23,25 @@
 
 <body>
     <div class="container">
+        <header>
+            <div class="nav-menu-container-left">
+                <nav>
+                    <ul>
+                        <li><span class="fa-solid fa-bars"></span>ロゴ</li>
+                        
+                            <li><a href="{{ route('dashboard') }}"><span class="fa-solid fa-house"></span>HOME</a></li>
+                        
+                        
+                            <li><a href="{{ route('account.list') }}"><span class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></li>
+                        
+                        
+                            <li><a href="{{ route('inquiry.list') }}"><span class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
 
-        <div class="side-menu-container">
-            <aside class="sidebar">
-                <div class="side-toggle-btn">
-                    <p><span class="fa-solid fa-bars"></span></p>
-                    <p><span class="fa-solid fa-xmark"></span></p>
-                </div>
-
-                <ul>
-                    <a href="{{ route('dashboard') }}">
-                        <li><span class="fa-solid fa-house"></span>HOME</li>
-                    </a>
-                    <a href="{{ route('account.list') }}">
-                        <li><span class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</li>
-                    </a>
-                    <a href="{{ route('inquiry.list') }}">
-                        <li><span class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</li>
-                    </a>
-                </ul>
-            </aside>
-        </div>
-
-        <div class="main-container">
-            <header>
+            <div class="nav-menu-container-right">
                 <div class="notification-aria" id="app">
                     <nav>
                         <button @click="toggleDropdown">
@@ -58,28 +53,28 @@
                         <ul class="notification-menu" v-show="showDropdown">
                             <li v-for="item in notifications.data" :key="item.id">
                                 <a :href="item.url">
-                                    @{{ item.date }}
-                                    @{{ item.title }}
+                                    <span>@{{ item.title }}</span>
+                                    <span class="notification-date">@{{ item.date }}</span>
                                 </a>
-                            </li>
-                            <li>
-                                <button @click="fetchAllNotifications">全てのお知らせを見る</button>
-                            </li>
-                            <li>
-                                <button @click="resetNotifications">元に戻す</button>
                             </li>
                         </ul>
                     </nav>
                 </div>
-                <p>ログイン中： {{ Auth::guard('admin')->user()->name }}</p>
-                <p><a href="{{ route('logout') }}"><span class="logout-btn">ログアウト</span></a></p>
-            </header>
-
+                <ul class="user-aria">
+                    <li class="logged-in-user-text">ログイン中： {{ Auth::guard('admin')->user()->name }}</li>
+                    <li><span class="logout-btn"><a href="{{ route('logout') }}">ログアウト</a></span></li>
+                </ul>
+            </div>
+        </header>
+        <div class="main-container">
             <main>
                 @yield('content')
             </main>
         </div>
     </div>
+
+
+
     <script>
         const app = Vue.createApp({
             data() {
@@ -101,23 +96,7 @@
                         .catch(error => {
                             console.error('Error fetching notifications:', error);
                         });
-                },
-                fetchAllNotifications() {
-                    const url = '{{ route('notification.all') }}';
-                    axios.get(url)
-                        .then(response => {
-                            console.log(response.data); // レスポンスデータをコンソールログに出力
-                            this.notifications = response.data;
-                            this.showDropdown = true; // Always show dropdown after fetching all notifications
-                        })
-                        .catch(error => {
-                            console.error('Error fetching all notifications:', error);
-                        });
-                },
-                resetNotifications() {
-                    this.fetchNotifications(); // 元に戻すために通常のお知らせを再度取得
-                    this.showDropdown = false; // ドロップダウンを閉じる
-                },
+                }
             },
             mounted() {
                 this.fetchNotifications();

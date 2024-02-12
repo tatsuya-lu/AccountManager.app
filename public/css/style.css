@@ -4,9 +4,17 @@ body {
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 18px;
-    background-color: #fff;
+    background-color: white;
     color: #666363;
     /*フォントは後で要調整*/
+}
+
+select {
+    color: #666363;
+}
+
+main {
+    margin: 0 15px;
 }
 
 a {
@@ -14,30 +22,17 @@ a {
     color: #666363;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    /* サイドメニューとメインコンテンツの割合を指定 */
+a:hover {
+    background-color: lightgray;
 }
 
-header {
-    display: flex;
-    justify-content: end;
-}
-
-header p {
-    margin: 25px 20px 17px 0;
-}
-
-.logout-btn {
-    border-radius: 6px;
-    padding: 10px 15px;
-    background-color: rgba(241, 116, 116, 0.3);
+li {
+    list-style: none;
 }
 
 .page-title {
     font-size: 23px;
-    margin: 20px 10px 20px 0;
+    margin: 10px 0 20px 0;
     border-bottom: 1px solid #666363;
 }
 
@@ -61,7 +56,7 @@ header p {
     text-align: center;
     align-items: center;
     background: #5bc8ac;
-    color: #fff;
+    color: white;
 }
 
 /*--ここからログイン画面--*/
@@ -83,7 +78,7 @@ header p {
     width: 100%;
     max-width: 300px;
     padding: 20px;
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -106,7 +101,7 @@ header p {
     padding: 10px;
     margin-top: 5px;
     background-color: #5bc8ac;
-    color: #fff;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -114,50 +109,136 @@ header p {
 
 /*--ここまでログイン画面--*/
 
-/*--ここからサイドメニュー--*/
+/*--ここからナビゲーションメニュー--*/
 
-.sidebar {
-    max-width: 250px;
-    height: 100%;
-    background-color: #5bc8ac;
-    position: fixed;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
-.side-toggle-btn {
-    color: #fff;
-    font-size: 25px;
+.nav-menu-container-left {
+    margin-left: 15px;
+}
+
+.nav-menu-container-right {
+    margin: 10px 15px 0 0;
+}
+
+.nav-menu-container-left li {
+    display: inline-block;
+    border-right: 1px solid #666363;
+    padding: 5px 5px 5px 0;
+
+}
+
+.nav-menu-container-left a {
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+.nav-menu-container-left span {
+    margin-right: 8px;
+}
+
+.nav-menu-container-right {
+    display: flex;
+    margin-top: 20px;
+}
+
+.user-aria {
     text-align: right;
-    margin-right: 10px;
 }
 
-.sidebar li {
-    color: #fff;
+.user-aria li {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.logged-in-user-text {
+    font-size: 20px;
+}
+
+.logout-btn {
+    border-radius: 6px;
+    padding: 5px 0;
+    background-color: lightcoral;
+}
+
+.logout-btn a {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+/*--ここまでナビゲーションメニュー--*/
+
+/*--ここからお知らせ機能--*/
+
+.notification-aria {
+    position: relative;
+    margin: 0px 30px 0px 0px;
+}
+
+.notification-aria li {
     list-style: none;
+    font-size: 18px;
+    padding: 5px;
+    border-bottom: 1px solid #666363;
 }
 
-.sidebar li span {
-    margin: 0 10px 0 10px;
+.notification-aria .fa-bell {
+    font-size: 1.5em;
 }
 
-.sidebar a {
+.notification-badge {
+    position: absolute;
+    top: 8px;
+    left: 17px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 5px;
+    font-size: 12px;
+}
+
+.notification-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    /* メニューがトリガーボタンの下に表示されるように調整 */
+    right: 0;
+    z-index: 999;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    border-bottom: 1px solid #a0a0a0;
-    display: block;
-    margin-right: 30px;
+    width: 700px;
 }
 
-.sidebar a:hover {
-    background-color: #a0a0a0;
+.notification-date {
+    float: right;
+    
 }
 
-/*--ここまでサイドメニュー--*/
+
+/*--ここまでお知らせ機能--*/
 
 
 /*--ここからダッシュボード画面--*/
 
 .dashboard {
     height: 500px;
+    display: flex;
     /*コンテンツ追加時に調整*/
+}
+
+.dashboard p {
+    background-color: #dcfcf3;
+    padding: 5px 10px;
+    margin: 0 10px;
+    height: fit-content;
 }
 
 /*--ここまでダッシュボード画面--*/
@@ -190,7 +271,7 @@ header p {
     display: inline-block;
     text-align: center;
     background: #5bc8ac;
-    color: #fff;
+    color: white;
     font-size: 15px;
 }
 
@@ -203,7 +284,7 @@ header p {
     padding-right: 1em;
     height: 45px;
     width: 100%;
-    background: #fff;
+    background: white;
 }
 
 .form-item textarea {
@@ -220,7 +301,7 @@ header p {
     width: 115px;
     letter-spacing: 0.05em;
     background-color: #5bc8ac;
-    color: #fff;
+    color: white;
 }
 
 
@@ -242,7 +323,7 @@ header p {
 }
 
 .new-register-btn a {
-    color: #fff;
+    color: white;
 }
 
 .new-register-btn span {
@@ -271,7 +352,7 @@ table th {
 
 table td {
     border: 0.5px solid #bbbfc2;
-    background-color: #fff;
+    background-color: white;
     padding: 10px 8px 10px 8px;
 }
 
@@ -297,7 +378,7 @@ table td {
 .current-page {
     background-color: #34D399;
     /* 現在のページ番号に適用する背景色 */
-    color: #fff;
+    color: white;
     /* ページ番号の文字色 */
     padding: 0 8px;
     /* ページ番号の余白 */
@@ -306,7 +387,7 @@ table td {
 }
 
 .page-link {
-    background-color: #fff;
+    background-color: white;
     /* 他のページ番号に適用する背景色 */
     color: #4B5563;
     /* ページ番号の文字色 */
@@ -428,7 +509,7 @@ table td {
     border-radius: 6px;
     padding: 6px 18px;
     background-color: #5bc8ac;
-    color: #fff;
+    color: white;
     cursor: pointer;
 }
 
@@ -477,50 +558,6 @@ select:-moz-focusring {
 }
 
 /*--ここまで検索機能--*/
-
-/*--ここからお知らせ機能--*/
-
-.notification-aria {
-    position: relative;
-    margin: 20px 20px 0 20px;
-}
-
-.notification-aria li {
-    list-style: none;
-    font-size: 18px;
-}
-
-.notification-aria .fa-bell {
-    font-size: 1.5em;
-}
-
-.notification-badge {
-    position: absolute;
-    top: 8px;
-    left: 17px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 4px 5px;
-    font-size: 12px;
-}
-
-.notification-menu {
-    position: absolute;
-    top: calc(100% + 10px);
-    /* メニューがトリガーボタンの下に表示されるように調整 */
-    right: 0;
-    z-index: 999;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    width: 700px;
-}
-
-
-/*--ここまでお知らせ機能--*/
 
 /*--ここからお問い合わせフォーム--*/
 .contact-form {
