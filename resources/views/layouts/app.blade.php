@@ -28,15 +28,17 @@
                 <nav>
                     <ul>
                         <li><span class="fa-solid fa-bars"></span>ロゴ</li>
-                        
-                            <li><a href="{{ route('dashboard') }}"><span class="fa-solid fa-house"></span>HOME</a></li>
-                        
-                        
-                            <li><a href="{{ route('account.list') }}"><span class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></li>
-                        
-                        
-                            <li><a href="{{ route('inquiry.list') }}"><span class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></li>
-                        
+
+                        <li><a href="{{ route('dashboard') }}"><span class="fa-solid fa-house"></span>HOME</a></li>
+
+
+                        <li><a href="{{ route('account.list') }}"><span
+                                    class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></li>
+
+
+                        <li><a href="{{ route('inquiry.list') }}"><span
+                                    class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></li>
+
                     </ul>
                 </nav>
             </div>
@@ -100,6 +102,9 @@
             },
             mounted() {
                 this.fetchNotifications();
+                setInterval(() => {
+                    this.fetchNotifications();
+                }, 60000);
             }
         });
 
