@@ -36,7 +36,7 @@
             </form>
 
             <div class="new-register-btn">
-                <p><a href="{{ route('account.register.form') }}"><span class="fa-solid fa-circle-plus"></span>新規作成</a></p>
+                <button><a href="{{ route('account.register.form') }}"><span class="fa-solid fa-circle-plus"></span>新規作成</a></button>
             </div>
         </div>
 

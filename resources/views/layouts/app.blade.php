@@ -27,17 +27,17 @@
             <div class="nav-menu-container-left">
                 <nav>
                     <ul>
-                        <li><span class="fa-solid fa-bars"></span>ロゴ</li>
+                        <li><span class="fa-solid fa-bars"></span>ロゴ</li><!--画像がまだ用意できていない-->
 
-                        <li><a href="{{ route('dashboard') }}"><span class="fa-solid fa-house"></span>HOME</a></li>
-
-
-                        <li><a href="{{ route('account.list') }}"><span
-                                    class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></li>
+                        <li><button><a href="{{ route('dashboard') }}"><span class="fa-solid fa-house"></span>HOME</a></button></li>
 
 
-                        <li><a href="{{ route('inquiry.list') }}"><span
-                                    class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></li>
+                        <li><button><a href="{{ route('account.list') }}"><span
+                            class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></button></li>
+
+
+                        <li><button><a href="{{ route('inquiry.list') }}"><span
+                            class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></button></li>
 
                     </ul>
                 </nav>
@@ -46,7 +46,7 @@
             <div class="nav-menu-container-right">
                 <div class="notification-aria" id="app">
                     <nav>
-                        <button @click="toggleDropdown">
+                        <button  @click="toggleDropdown">
                             <i class="far fa-bell"></i>
                             <span v-if="notifications.total > 0"
                                 class="notification-badge">@{{ notifications.total }}</span>
@@ -64,7 +64,7 @@
                 </div>
                 <ul class="user-aria">
                     <li class="logged-in-user-text">ログイン中： {{ Auth::guard('admin')->user()->name }}</li>
-                    <li><span class="logout-btn"><a href="{{ route('logout') }}">ログアウト</a></span></li>
+                    <li><button class="logout-btn"><a href="{{ route('logout') }}">ログアウト</a></button></li>
                 </ul>
             </div>
         </header>

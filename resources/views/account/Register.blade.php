@@ -160,7 +160,8 @@
                 @endif
             </div>
 
-            <input type="submit" class="form-btn" value="{{ $user->id ? '更新する' : '確認する' }}">
+            
+            <button type="submit" class="form-btn">{{ $user->id ? '更新する' : '確認する' }}</button>
         </form>
 
     </div>

@@ -42,7 +42,7 @@
                     <textarea name="comment" id="comment" class="form-item-input form-item-textarea">{{ $inquiry->comment }}</textarea>
                 </div>
 
-                <input type="submit" class="form-btn" value="更新する">
+                <button type="submit" class="form-btn">更新する</button>
 
             </form>
         </div>

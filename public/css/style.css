@@ -22,10 +22,6 @@ a {
     color: #666363;
 }
 
-a:hover {
-    background-color: lightgray;
-}
-
 li {
     list-style: none;
 }
@@ -50,9 +46,9 @@ li {
 
 .success {
     border-radius: 6px;
-    margin: 0 0 20px 50px;
+    margin-bottom: 20px;
     padding: 5px 0;
-    max-width: 90%;
+    max-width: 100%;
     text-align: center;
     align-items: center;
     background: #5bc8ac;
@@ -76,7 +72,7 @@ li {
 
 .login-container form {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
@@ -107,6 +103,10 @@ li {
     cursor: pointer;
 }
 
+.login-container button:hover {
+    background-color: #4ca594;
+}
+
 /*--ここまでログイン画面--*/
 
 /*--ここからナビゲーションメニュー--*/
@@ -127,15 +127,19 @@ header {
 }
 
 .nav-menu-container-left li {
-    display: inline-block;
+    display: inline;
     border-right: 1px solid #666363;
     padding: 5px 5px 5px 0;
 
 }
 
-.nav-menu-container-left a {
+.nav-menu-container-left button {
     padding: 8px 10px;
     border-radius: 6px;
+}
+
+.nav-menu-container-left button:hover {
+    background-color: #c4c5c5;
 }
 
 .nav-menu-container-left span {
@@ -164,6 +168,10 @@ header {
     border-radius: 6px;
     padding: 5px 0;
     background-color: lightcoral;
+}
+
+.logout-btn:hover {
+    background-color: #be7676;
 }
 
 .logout-btn a {
@@ -234,11 +242,14 @@ header {
     /*コンテンツ追加時に調整*/
 }
 
-.dashboard p {
+.dashboard button {
     background-color: #dcfcf3;
     padding: 5px 10px;
     margin: 0 10px;
     height: fit-content;
+}
+.dashboard button:hover {
+    background-color: #95d8c5;
 }
 
 /*--ここまでダッシュボード画面--*/
@@ -321,6 +332,9 @@ header {
     max-width: fit-content;
     /*位置調整方法を要検討*/
 }
+.new-register-btn:hover{
+    background-color: #4ca594;
+}
 
 .new-register-btn a {
     color: white;
@@ -377,29 +391,20 @@ table td {
 
 .current-page {
     background-color: #34D399;
-    /* 現在のページ番号に適用する背景色 */
     color: white;
-    /* ページ番号の文字色 */
     padding: 0 8px;
-    /* ページ番号の余白 */
     border-radius: 4px;
-    /* ページ番号の角丸 */
 }
 
 .page-link {
     background-color: white;
-    /* 他のページ番号に適用する背景色 */
     color: #4B5563;
-    /* ページ番号の文字色 */
     padding: 0 8px;
-    /* ページ番号の余白 */
     border-radius: 4px;
-    /* ページ番号の角丸 */
 }
 
 .page-link:hover {
     background-color: #E5E7EB;
-    /* ページ番号にホバーした際の背景色 */
 }
 
 .arrow-link-next,
