@@ -74,9 +74,9 @@ li {
     width: 100%;
     max-width: 320px;
     padding: 20px;
-    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
 .login-container label {
@@ -86,21 +86,21 @@ li {
 
 .login-container input {
     width: 100%;
+    box-sizing: border-box;
     padding: 8px;
     border-radius: 3px;
     border: 1px solid #a0a0a0;
-    box-sizing: border-box;
 }
 
 .login-container button {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    background-color: #5bc8ac;
-    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    color: #ffffff;
+    background-color: #5bc8ac;
 }
 
 .login-container button:hover {
@@ -118,44 +118,44 @@ header {
     padding-bottom: 10px;
 }
 
-.nav-menu-container-left {
+.header-contant-left {
     margin-left: 15px;
 }
 
-.nav-menu-container-right {
+.header-contant-right {
     margin: 10px 15px 0 0;
 }
 
-.nav-menu-container-left li {
+.header-contant-left li {
     display: inline;
     border-right: 1px solid #666363;
     padding: 5px 5px 5px 0;
 
 }
 
-.nav-menu-container-left button {
+.header-contant-left button {
     padding: 8px 10px;
     border-radius: 6px;
 }
 
-.nav-menu-container-left button:hover {
+.header-contant-left button:hover {
     background-color: #c4c5c5;
 }
 
-.nav-menu-container-left span {
+.header-contant-left span {
     margin-right: 8px;
 }
 
-.nav-menu-container-right {
+.header-contant-right {
     display: flex;
     margin-top: 20px;
 }
 
-.user-aria {
+.user-control-aria {
     text-align: right;
 }
 
-.user-aria li {
+.user-control-aria li {
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -200,7 +200,7 @@ header {
     font-size: 1.5em;
 }
 
-.notification-badge {
+.notification-count-badge {
     position: absolute;
     top: 8px;
     left: 17px;
@@ -211,7 +211,7 @@ header {
     font-size: 12px;
 }
 
-.notification-menu {
+.notification-list {
     position: absolute;
     top: calc(100% + 10px);
     /* メニューがトリガーボタンの下に表示されるように調整 */
@@ -227,7 +227,7 @@ header {
 
 .notification-date {
     float: right;
-    
+
 }
 
 /*--ここまでお知らせ機能--*/
@@ -246,6 +246,7 @@ header {
     margin: 0 10px;
     height: fit-content;
 }
+
 .dashboard button:hover {
     background-color: #95d8c5;
 }
@@ -312,6 +313,7 @@ header {
     background-color: #5bc8ac;
     color: #ffffff;
 }
+
 .form-btn:hover {
     background-color: #4ca594;
 }
@@ -333,7 +335,8 @@ header {
     max-width: fit-content;
     /*位置調整方法を要検討*/
 }
-.new-register-btn:hover{
+
+.new-register-btn:hover {
     background-color: #4ca594;
 }
 

@@ -6,10 +6,6 @@
 <body>
     <div class="login-container">
 
-        @if ($errors->has('error'))
-            <p class="error-message">{{ $errors->first('error') }}</p>
-        @endif
-
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -30,6 +26,10 @@
                     <p class="error-message">{{ $errors->first('password') }}</p>
                 @endif
             </div>
+
+            @if ($errors->has('error'))
+                <p class="error-message">{{ $errors->first('error') }}</p>
+            @endif
 
             <button type="submit">ログイン</button>
         </form>

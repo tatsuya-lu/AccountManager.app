@@ -22,58 +22,54 @@
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="nav-menu-container-left">
+    <header>
+        <div class="header-contant-left">
+            <nav>
+                <ul>
+                    <li><span class="fa-solid fa-bars"></span>ロゴ</li><!--画像がまだ用意できていない-->
+
+                    <li><button><a href="{{ route('dashboard') }}"><span
+                                    class="fa-solid fa-house"></span>HOME</a></button></li>
+
+
+                    <li><button><a href="{{ route('account.list') }}"><span
+                                    class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></button></li>
+
+
+                    <li><button><a href="{{ route('inquiry.list') }}"><span
+                                    class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></button></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-contant-right">
+            <div class="notification-aria" id="app">
                 <nav>
-                    <ul>
-                        <li><span class="fa-solid fa-bars"></span>ロゴ</li><!--画像がまだ用意できていない-->
-
-                        <li><button><a href="{{ route('dashboard') }}"><span class="fa-solid fa-house"></span>HOME</a></button></li>
-
-
-                        <li><button><a href="{{ route('account.list') }}"><span
-                            class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></button></li>
-
-
-                        <li><button><a href="{{ route('inquiry.list') }}"><span
-                            class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></button></li>
-
+                    <button @click="toggleDropdown">
+                        <span class="far fa-bell"></span>
+                        <span v-if="notifications.total > 0"
+                            class="notification-count-badge">@{{ notifications.total }}</span>
+                    </button>
+                    <!-- お知らせメニュー -->
+                    <ul class="notification-list" v-show="showDropdown">
+                        <li v-for="item in notifications.data" :key="item.id">
+                            <a :href="item.url">
+                                <span>@{{ item.title }}</span>
+                                <span class="notification-date">@{{ item.date }}</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
-
-            <div class="nav-menu-container-right">
-                <div class="notification-aria" id="app">
-                    <nav>
-                        <button  @click="toggleDropdown">
-                            <i class="far fa-bell"></i>
-                            <span v-if="notifications.total > 0"
-                                class="notification-badge">@{{ notifications.total }}</span>
-                        </button>
-                        <!-- お知らせメニュー -->
-                        <ul class="notification-menu" v-show="showDropdown">
-                            <li v-for="item in notifications.data" :key="item.id">
-                                <a :href="item.url">
-                                    <span>@{{ item.title }}</span>
-                                    <span class="notification-date">@{{ item.date }}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <ul class="user-aria">
-                    <li class="logged-in-user-text">ログイン中： {{ Auth::guard('admin')->user()->name }}</li>
-                    <li><button class="logout-btn"><a href="{{ route('logout') }}">ログアウト</a></button></li>
-                </ul>
-            </div>
-        </header>
-        <div class="main-container">
-            <main>
-                @yield('content')
-            </main>
+            <ul class="user-control-aria">
+                <li class="logged-in-user-text">ログイン中： {{ Auth::guard('admin')->user()->name }}</li>
+                <li><button class="logout-btn"><a href="{{ route('logout') }}">ログアウト</a></button></li>
+            </ul>
         </div>
-    </div>
+    </header>
+        <main>
+            @yield('content')
+        </main>
 
 
 

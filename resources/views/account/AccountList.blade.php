@@ -6,9 +6,6 @@
 
 @section('content')
     <p class="page-title">アカウント一覧</p>
-
-    
-
         
         <div class="search-form">
             <form>
