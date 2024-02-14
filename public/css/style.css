@@ -255,7 +255,7 @@ header {
 
 /*--ここからアカウント登録画面--*/
 
-.register-form {
+.register-form-container {
     margin-right: 25px;
 }
 
@@ -348,7 +348,7 @@ header {
     margin-right: 5px;
 }
 
-.table-list {
+.table-container {
     display: flex;
     justify-content: center;
 }
@@ -383,7 +383,7 @@ table td {
     font-size: 1.2em;
 }
 
-.table-center {
+.table-text-center {
     text-align: center;
 }
 
@@ -435,12 +435,12 @@ table td {
 
 /*--ここからお問い合わせ編集--*/
 
-.inquiry-container {
+.inquiry-edit-container {
     margin-right: 25px;
     display: flex;
 }
 
-.inquiry-form {
+.inquiry-form-contant {
     flex: 1;
 }
 
@@ -453,7 +453,7 @@ table td {
     height: 216px;
 }
 
-.inquiry-info {
+.inquiry-info-content {
     border-left: 1px solid #a0a0a0;
     max-width: 720px;
     padding: 10px 20px;
@@ -462,23 +462,23 @@ table td {
     flex: 2;
 }
 
-.inquiry-info p {
+.inquiry-info-content p {
     margin-top: 5px;
     margin-bottom: 10px;
 }
 
-.inquiry-info label {
+.inquiry-info-content label {
     font-weight: bold;
 }
 
-.inquiry-info .sub-title {
+.inquiry-info-content .sub-title {
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 15px;
 }
 
-.inquiry-info .info-item {
+.inquiry-info-content .info-item {
     margin-bottom: 15px;
 }
 
@@ -497,7 +497,7 @@ table td {
     display: flex;
 }
 
-.form-group {
+.search-form-item {
     margin-right: 25px;
 }
 

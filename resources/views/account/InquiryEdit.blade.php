@@ -14,9 +14,9 @@
             {{ session('success') }}
         </div>
     @endif
-    <div class="inquiry-container">
-        <div class="inquiry-form">
+    <div class="inquiry-edit-container">
 
+        <div class="inquiry-form-contant">
             <form method="POST" action="{{ route('inquiry.update', $inquiry->id) }}">
                 @csrf
                 @method('PUT')
@@ -43,11 +43,10 @@
                 </div>
 
                 <button type="submit" class="form-btn">更新する</button>
-
             </form>
         </div>
 
-        <div class="inquiry-info">
+        <div class="inquiry-info-content">
             <p class="sub-title">お問い合わせ情報</p>
 
             <div class="info-item">

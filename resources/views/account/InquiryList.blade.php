@@ -10,8 +10,8 @@
 
         <div class="search-form">
             <form>
-                <div class="form-group search_group_sub">
-                    <select class="form-control minimal" name="search_status">
+                <div class="search-form-item">
+                    <select class=" minimal" name="search_status">
                         <option value="" selected>ステータスを選択</option>
                         <option value="default" {{ request('search_status') == 'default' ? 'selected' : '' }}>未対応</option>
                         <option value="checking" {{ request('search_status') == 'checking' ? 'selected' : '' }}>対応中</option>
@@ -19,17 +19,17 @@
                     </select>
                 </div>
 
-                <div class="form-group search_group_sub">
+                <div class="search-form-item">
                     <input type="search" name="search_company" value="{{ request('search_company') }}" placeholder="会社名を入力"
                         aria-label="会社名検索">
                 </div>
 
-                <div class="form-group search_group_sub">
+                <div class="search-form-item">
                     <input type="search" name="search_tel" value="{{ request('search_tel') }}" placeholder="電話番号を入力"
                         aria-label="電話番号検索">
                 </div>
 
-                <div class="form-group">
+                <div class="search-form-item">
                     <input type="submit" value="検索">
                 </div>
             </form>
@@ -42,7 +42,7 @@
         </div>
     @endif
 
-    <div class="table-list">
+    <div class="table-container">
         <table>
             <tr>
                 <th>編集</th>
@@ -53,7 +53,7 @@
             </tr>
             @foreach ($inquiries as $inquiry)
                 <tr>
-                    <td class="table-center">
+                    <td class="table-text-center">
                         <a href="{{ route('inquiry.edit', $inquiry->id) }}">
                             <span class="fa-solid fa-pen-to-square"></span>
                         </a>

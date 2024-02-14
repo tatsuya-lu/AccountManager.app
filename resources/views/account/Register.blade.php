@@ -17,7 +17,7 @@
         @endif
     </p>
 
-    <div class="register-form">
+    <div class="register-form-container">
 
         <form method="POST"
             action="{{ $user->id ? route('account.update', ['user' => $user->id]) : route('account.register.form') }}">
@@ -160,7 +160,7 @@
                 @endif
             </div>
 
-            
+
             <button type="submit" class="form-btn">{{ $user->id ? '更新する' : '確認する' }}</button>
         </form>
 
