@@ -7,31 +7,33 @@
 @section('content')
     <p class="page-title">アカウント一覧</p>
 
-    <div class="search-form">
-        <form>
-            <div class="search-form-item">
-                <input type="search" name="search_name" value="{{ request('search_name') }}" placeholder="名前を入力"
-                    aria-label="名前を検索...">
-            </div>
+    <div class="search-form-container">
+        <div class="search-form">
+            <form>
+                <div class="search-form-item">
+                    <input type="search" name="search_name" value="{{ request('search_name') }}" placeholder="名前を入力"
+                        aria-label="名前を検索...">
+                </div>
 
-            <div class="search-form-item">
-                <select class="minimal" name="search_admin_level">
-                    <option selected>アカウントの種類を選択</option>
-                    <option value="1" {{ request('search_admin_level') == 1 ? 'selected' : '' }}>管理者</option>
-                    <option value="2" {{ request('search_admin_level') == 2 ? 'selected' : '' }}>社員</option>
-                </select>
-            </div>
+                <div class="search-form-item">
+                    <select class="minimal" name="search_admin_level">
+                        <option selected>アカウントの種類を選択</option>
+                        <option value="1" {{ request('search_admin_level') == 1 ? 'selected' : '' }}>管理者</option>
+                        <option value="2" {{ request('search_admin_level') == 2 ? 'selected' : '' }}>社員</option>
+                    </select>
+                </div>
 
-            <div class="search-form-item">
-                <input type="search" name="search_email" value="{{ request('search_email') }}" placeholder="メールアドレスを入力"
-                    aria-label="メールアドレスを検索...">
-            </div>
+                <div class="search-form-item">
+                    <input type="search" name="search_email" value="{{ request('search_email') }}" placeholder="メールアドレスを入力"
+                        aria-label="メールアドレスを検索...">
+                </div>
 
-            <div class="search-form-item">
-                <input type="submit" value="検索">
-            </div>
-        </form>
-
+                <div class="search-form-item">
+                    <input type="submit" value="検索">
+                </div>
+            </form>
+        </div>
+        
         <div class="new-register-btn">
             <button><a href="{{ route('account.register.form') }}"><span
                         class="fa-solid fa-circle-plus"></span>新規作成</a></button>

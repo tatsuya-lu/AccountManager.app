@@ -1,5 +1,31 @@
 @charset "UTF-8";
 
+
+/*使用中のカラー
+#ffffff - ホワイト
+#666363 - ダークグレー
+#5bc8ac - ライトグリーン
+#ff0000 - レッド
+#c4c5c5 - グレー
+#e0e0e0 - ライトグレー
+#a0a0a0 - ミドルグレー
+#95d8c5 - ライトグリーン
+#be7676 - ライトレッド
+#34d399 - ライトグリーン
+#4b5563 - ミドルグレー
+#808080 - グレー
+#dddddd - ライトグレー
+#f08080 - レッド
+#4ca594
+#bbbfc2
+#e5e7eb
+#ccc
+#000
+*/
+
+
+
+
 body {
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
@@ -323,31 +349,6 @@ header {
 
 /*--ここからアカウント・お問い合わせ一覧画面--*/
 
-.new-register-btn {
-    position: absolute;
-    right: 0;
-    margin-right: 20px;
-    border-radius: 6px;
-    padding: 8px;
-    letter-spacing: 0.05em;
-    background-color: #5bc8ac;
-    text-align: center;
-    max-width: fit-content;
-    /*位置調整方法を要検討*/
-}
-
-.new-register-btn:hover {
-    background-color: #4ca594;
-}
-
-.new-register-btn a {
-    color: #ffffff;
-}
-
-.new-register-btn span {
-    margin-right: 5px;
-}
-
 .table-container {
     display: flex;
     justify-content: center;
@@ -486,8 +487,39 @@ table td {
 
 /*--ここから検索機能--*/
 
+.new-register-btn {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    border-radius: 6px;
+    padding: 0 8px;
+    letter-spacing: 0.05em;
+    background-color: #5bc8ac;
+    text-align: center;
+    max-width: fit-content;
+    height: 40px;
+    /*位置調整方法を要検討*/
+}
+
+.new-register-btn:hover {
+    background-color: #4ca594;
+}
+
+.new-register-btn a {
+    color: #ffffff;
+}
+
+.new-register-btn span {
+    margin-right: 5px;
+}
+
+.search-form-container {
+    display: flex;
+    justify-content: center;
+}
+
 .search-form {
-    position: relative;
+    flex: 1;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;

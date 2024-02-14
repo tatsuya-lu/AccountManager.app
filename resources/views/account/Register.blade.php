@@ -98,7 +98,7 @@
 
             <div class="form-item">
                 <label><span class="required">必須</span>都道府県</label>
-                <select class="form-item-input" name="prefecture" id="prefecture">
+                <select class="form-item-input minimal" name="prefecture" id="prefecture">
                     <option value="" selected disabled>都道府県を選択してください</option>
                     @foreach ($prefectures as $key => $value)
                         <option value="{{ $key }}"
@@ -145,7 +145,7 @@
 
             <div class="form-item">
                 <label><span class="required">必須</span>アカウントの種類</label>
-                <select class="form-item-input" name="admin_level" id="admin_level">
+                <select class="form-item-input minimal" name="admin_level" id="admin_level">
                     <option value="" selected disabled>アカウントの種類を選択してください</option>
                     @foreach ($adminLevels as $key => $value)
                         <option value="{{ $key }}"
