@@ -4,7 +4,7 @@
 @include('layouts.head')
 
 <body>
-    <div class="contact-form contact-thanks">
+    <div class="contact-form-container contact-thanks">
         <p class="check-in-messege">送信完了しました。</p>
 
         <div class="form-item under-line">

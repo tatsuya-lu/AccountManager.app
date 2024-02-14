@@ -5,7 +5,7 @@
 
 <body>
 
-    <div class="contact-form">
+    <div class="contact-form-container">
 
         <form method="POST" action="{{ route('contact.send') }}">
             @csrf
