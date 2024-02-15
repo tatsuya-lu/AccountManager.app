@@ -3,12 +3,8 @@
 namespace App\Http\Controllers\Contact;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Mail\ContactsSendmail;
 use App\Models\Post;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ContactRequest;
-use Config;
 
 
 class ContactsController extends Controller
@@ -45,21 +41,15 @@ class ContactsController extends Controller
     public function send(ContactRequest $request)
     {
 
-        //フォームから受け取ったactionの値を取得
         $action = $request->input('action');
 
-        //フォームから受け取ったactionを除いたinputの値を取得
         $inputs = $request->except('action');
 
-        //actionの値で分岐
         if ($action !== 'submit') {
             return redirect()
                 ->route('contact.index')
                 ->withInput($inputs);
         } else {
-            //メール送信機能は実装機能はひとまず実装せず、後々要検討。
-
-            //再送信を防ぐためにトークンを再発行
             $request->session()->regenerateToken();
 
             $post = Post::create([
@@ -76,7 +66,6 @@ class ContactsController extends Controller
             $genders = $this->genders;
             $professions = $this->professions;
 
-            //送信完了ページのviewを表示
             return view('contact.thanks', compact('inputs', 'genders', 'professions'));
         }
     }

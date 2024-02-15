@@ -9,12 +9,7 @@ use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
-    /**
-     * 認証の試行を処理
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function login(Request $request)
     {
         $credentials = $request->validate([

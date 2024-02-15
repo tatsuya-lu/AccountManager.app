@@ -4,14 +4,10 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rules\Password;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\AccountRequest;
-use Illuminate\Pagination\Paginator;
-use Config;
 
 class AccountController extends Controller
 {
@@ -75,7 +71,6 @@ class AccountController extends Controller
 
     public function accountList(Request $request)
     {
-
         $users = Account::orderBy('created_at', 'asc')->where(function ($query) use ($request) {
             if ($searchName = $request->input('search_name')) {
                 $query->where('name', 'LIKE', '%' . $searchName . '%');
@@ -98,8 +93,6 @@ class AccountController extends Controller
 
     public function update(AccountRequest $request, Account $user)
     {
-
-        // ユーザー情報の更新
         $user->name = $request->name;
         $user->email = $request->email;
         $user->tel = $request->tel;
@@ -110,9 +103,7 @@ class AccountController extends Controller
         $user->comment = $request->comment;
         $user->admin_level = $request->admin_level;
 
-
         if ($request->filled('password')) {
-            // パスワードのハッシュ化
             $user->password = bcrypt($request->password);
         }
 
@@ -131,11 +122,7 @@ class AccountController extends Controller
 
     public function destroy(Account $user)
     {
-
-        // ユーザー削除
         $user->delete();
-
-        // 削除後にリダイレクト
         return redirect()->route('account.list')->with('success', 'ユーザーが正常に削除されました。');
     }
 
