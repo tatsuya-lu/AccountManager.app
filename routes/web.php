@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\InquiryController;
-use App\Http\Controllers\ContactsController;
-use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\Account\AccountController;
+use App\Http\Controllers\Account\LoginController;
+use App\Http\Controllers\Account\InquiryController;
+use App\Http\Controllers\Account\NotificationController;
+use App\Http\Controllers\Contact\ContactsController;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use Illuminate\Support\Facades\Route;
