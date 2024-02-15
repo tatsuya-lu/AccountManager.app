@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Notification;
-use App\Models\NotificationRead;
+use App\Models\Account\Notification;
+use App\Models\Account\NotificationRead;
 
 class NotificationController extends Controller
 {
-    
+
     public function show(Request $request, Notification $notification)
     {
         $user = $request->user();

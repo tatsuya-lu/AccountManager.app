@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Models\Account;
+use App\Models\Account\Account;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\AccountRequest;
+use App\Http\Requests\Account\AccountRequest;
 
 class AccountController extends Controller
 {
@@ -30,7 +30,7 @@ class AccountController extends Controller
         $prefectures = $this->prefectures;
         $adminLevels = $this->adminLevels;
 
-        return view('account.Register',compact('user', 'prefectures', 'adminLevels'));
+        return view('account.Register', compact('user', 'prefectures', 'adminLevels'));
     }
 
     protected function registerDatabase(array $data)
@@ -125,5 +125,4 @@ class AccountController extends Controller
         $user->delete();
         return redirect()->route('account.list')->with('success', 'ユーザーが正常に削除されました。');
     }
-
 }

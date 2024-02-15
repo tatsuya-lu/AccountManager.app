@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Post;
-use App\Http\Requests\InquiryRequest;
+use App\Models\Contact\Post;
+use App\Http\Requests\Account\InquiryRequest;
 
 class InquiryController extends Controller
 {

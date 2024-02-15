@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account;
-use App\Models\Notification;
-use App\Models\NotificationRead;
+use App\Models\Account\Account;
+use App\Models\Account\Notification;
+use App\Models\Account\NotificationRead;
 use Illuminate\Database\Seeder;
 
 class NotificationsTableSeeder extends Seeder

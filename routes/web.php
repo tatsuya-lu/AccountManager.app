@@ -7,7 +7,6 @@ use App\Http\Controllers\Account\InquiryController;
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Contact\ContactsController;
 use App\Http\Controllers\Controller;
-use App\Models\Account;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,7 +79,6 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     Route::get('/notification/list', [NotificationController::class, 'list'])->name('notification.list');
 
     Route::get('/notification/{notification}', [NotificationController::class, 'show'])->name('notification.show');
-    
 });
 
 //prefexでまとめる？

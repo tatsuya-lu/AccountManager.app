@@ -70,7 +70,7 @@ return [
         ],
         'admin_users' => [ // ここ追加
             'driver' => 'eloquent',
-            'model' => App\Models\Account::class, //make:modelしたクラス名
+            'model' => App\Models\Account\Account::class, //make:modelしたクラス名
         ],
 
         // 'users' => [

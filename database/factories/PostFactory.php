@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
+use App\Models\Contact\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Config;
 
