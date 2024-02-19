@@ -26,18 +26,18 @@ class AccountController extends Controller
         view()->share(['prefectures' => $this->prefectures, 'admin_levels' => $this->adminLevels]);
     }
 
-    public function index(Request $request)
+    public function index(Request $request, InquiryController $inquiryController)
     {
         $user = auth()->user();
-
         $readNotificationIds = NotificationRead::where('user_id', $user->id)
             ->where('read', true)
             ->pluck('notification_id')
             ->toArray();
 
-            $notifications = Notification::paginate(5);
+        $notifications = Notification::paginate(5);
+        $unresolvedInquiryCount = $inquiryController->unresolvedInquiryCount();
 
-        return view('account.Dashboard', compact('notifications', 'readNotificationIds'));
+        return view('account.Dashboard', compact('notifications', 'readNotificationIds', 'unresolvedInquiryCount'));
     }
 
     public function registerForm(Request $request)
