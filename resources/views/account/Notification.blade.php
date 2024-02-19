@@ -10,7 +10,7 @@
     </div>
 
     <div>
-        <h2>{{ $notification->title }}</h2>
+        <p class="sub-title">{{ $notification->title }}</p>
         <p>{{ $notification->description }}</p>
     </div>
 @endsection

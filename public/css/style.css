@@ -58,6 +58,11 @@ li {
     border-bottom: 1px solid #666363;
 }
 
+.sub-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .main-content-aria {
     margin-right: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -261,20 +266,60 @@ header {
 /*--ここからダッシュボード画面--*/
 
 .dashboard {
-    height: 500px;
+    max-height: fit-content;
     display: flex;
-    /*コンテンツ追加時に調整*/
 }
 
 .dashboard button {
     background-color: #dcfcf3;
     padding: 5px 10px;
     margin: 0 10px;
+    border-radius: 3px;
     height: fit-content;
 }
 
 .dashboard button:hover {
     background-color: #95d8c5;
+}
+
+.notification-list-aria {
+    padding: 0 10px;
+}
+
+.notification-list-aria .sub-title {
+    margin-bottom: 10px;
+}
+
+.notification-title {
+    font-weight: bold;
+    margin: 8px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-title-date {
+    font-weight: bold;
+}
+
+.notification-content {
+    border-bottom: 1px solid #a0a0a0;
+    padding-bottom: 5px;
+}
+
+.notification-read-status {
+    background-color: #e0e0e0;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-left: 15px;
+}
+
+.notification-not-read-status {
+    background-color: #f08080;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-left: 15px;
 }
 
 /*--ここまでダッシュボード画面--*/
@@ -473,8 +518,6 @@ table td {
 }
 
 .inquiry-info-content .sub-title {
-    font-size: 20px;
-    font-weight: bold;
     margin-top: 10px;
     margin-bottom: 15px;
 }
