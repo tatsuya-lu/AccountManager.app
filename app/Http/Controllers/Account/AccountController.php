@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\Account\Account;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Account\AccountRequest;
+use App\Models\Account\Notification;
+use App\Models\Account\NotificationRead;
 
 class AccountController extends Controller
 {
@@ -22,6 +24,20 @@ class AccountController extends Controller
         $this->adminLevels = config('const.admin_level');
 
         view()->share(['prefectures' => $this->prefectures, 'admin_levels' => $this->adminLevels]);
+    }
+
+    public function index(Request $request)
+    {
+        $user = auth()->user();
+
+        $readNotificationIds = NotificationRead::where('user_id', $user->id)
+            ->where('read', true)
+            ->pluck('notification_id')
+            ->toArray();
+
+            $notifications = Notification::paginate(5);
+
+        return view('account.Dashboard', compact('notifications', 'readNotificationIds'));
     }
 
     public function registerForm(Request $request)

@@ -13,9 +13,7 @@
                 </a>
             @endif
 
-            {{-- ページ番号のリンクを挿入 --}}
             @foreach ($elements as $element)
-                {{-- Array Of Links --}}
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
@@ -42,7 +40,6 @@
 
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between item-float-right2">
             <div>
-                {{-- ★日本語修正★ --}}
                 <p class="text-sm text-gray-700 leading-5">
                     表示中
                     @if ($paginator->total() > 0)

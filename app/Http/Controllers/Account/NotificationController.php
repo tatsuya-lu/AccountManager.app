@@ -27,7 +27,7 @@ class NotificationController extends Controller
             $notificationRead->save();
         }
 
-        return $notification;
+        return view('account.Notification',compact('notification'));
     }
 
     public function list(Request $request)

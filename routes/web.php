@@ -37,14 +37,14 @@ use Illuminate\Support\Facades\Route;
 // require __DIR__.'/auth.php';
 
 Route::get('/login', function () {
-    return view('account.Login'); // blade.php
+    return view('account.Login');
 })->middleware('guest:admin');
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/dashboard', function () {
-    return view('account.Dashboard');
-})->middleware('auth:admin')->name('dashboard');
+Route::get('/dashboard', [AccountController::class, 'index'])
+    ->middleware('auth:admin')
+    ->name('dashboard');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -81,10 +81,11 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     Route::get('/notification/{notification}', [NotificationController::class, 'show'])->name('notification.show');
 });
 
-//prefexでまとめる？
-//入力フォームページ
-Route::get('/contact', [ContactsController::class, 'index'])->name('contact.index');
-//確認フォームページ
-Route::post('/contact/confirm', [ContactsController::class, 'confirm'])->name('contact.confirm');
-//送信完了フォームページ
-Route::post('/contact/thanks', [ContactsController::class, 'send'])->name('contact.send');
+Route::prefix('contact')->group(function () {
+    //入力フォームページ
+    Route::get('/', [ContactsController::class, 'index'])->name('contact.index');
+    //確認フォームページ
+    Route::post('/confirm', [ContactsController::class, 'confirm'])->name('contact.confirm');
+    //送信完了フォームページ
+    Route::post('/thanks', [ContactsController::class, 'send'])->name('contact.send');
+});

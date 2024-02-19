@@ -4,6 +4,7 @@ namespace App\Models\Account;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Account\NotificationRead;
 
 class Notification extends Model
 {
