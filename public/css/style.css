@@ -244,7 +244,7 @@ header {
 
 .notification-list {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(50% + 10px);
     /* メニューがトリガーボタンの下に表示されるように調整 */
     right: 0;
     z-index: 999;
@@ -271,19 +271,32 @@ header {
 }
 
 .dashboard button {
-    background-color: #dcfcf3;
-    padding: 5px 10px;
-    margin: 0 10px;
-    border-radius: 3px;
-    height: fit-content;
+    margin-right: 20px;
+    border-radius: 6px;
+    padding: 0 8px;
+    letter-spacing: 0.05em;
+    background-color: #5bc8ac;
+    text-align: center;
+    max-width: fit-content;
+    height: 40px;
 }
 
 .dashboard button:hover {
-    background-color: #95d8c5;
+    background-color: #4ca594;
+}
+
+.dashboard button a {
+    color: #ffffff;
+}
+
+.dashboard button span {
+    margin-right: 5px;
 }
 
 .notification-list-aria {
-    padding: 0 10px;
+    padding: 0 20px 0 10px;
+    margin-right: 20px;
+    border-right: 1px solid #4b5563;
 }
 
 .notification-list-aria .sub-title {
@@ -541,7 +554,6 @@ table td {
     text-align: center;
     max-width: fit-content;
     height: 40px;
-    /*位置調整方法を要検討*/
 }
 
 .new-register-btn:hover {

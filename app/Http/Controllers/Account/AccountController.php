@@ -36,8 +36,9 @@ class AccountController extends Controller
 
         $notifications = Notification::paginate(5);
         $unresolvedInquiryCount = $inquiryController->unresolvedInquiryCount();
+        $unresolvedInquiries = $inquiryController->unresolvedInquiries(); 
 
-        return view('account.Dashboard', compact('notifications', 'readNotificationIds', 'unresolvedInquiryCount'));
+        return view('account.Dashboard', compact('notifications', 'readNotificationIds', 'unresolvedInquiryCount', 'unresolvedInquiries'));
     }
 
     public function registerForm(Request $request)

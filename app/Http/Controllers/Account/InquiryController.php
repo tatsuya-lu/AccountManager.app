@@ -55,6 +55,11 @@ class InquiryController extends Controller
         return Post::where('status', 'default')->count();
     }
 
+    public function unresolvedInquiries()
+    {
+        return Post::where('status', 'default')->paginate(5);
+    }
+
     public function edit(Post $inquiry)
     {
         return view('account.InquiryEdit', compact('inquiry'));
