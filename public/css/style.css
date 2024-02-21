@@ -2,25 +2,31 @@
 
 
 /*使用中のカラー
-#ffffff - ホワイト
-#666363 - ダークグレー
-#5bc8ac - ライトグリーン
-#ff0000 - レッド
-#c4c5c5 - グレー
-#e0e0e0 - ライトグレー
-#a0a0a0 - ミドルグレー
-#95d8c5 - ライトグリーン
-#be7676 - ライトレッド
-#34d399 - ライトグリーン
-#4b5563 - ミドルグレー
-#808080 - グレー
-#dddddd - ライトグレー
-#f08080 - レッド
-#4ca594
-#bbbfc2
-#e5e7eb
-#ccc
-#000
+#fff - ホワイト
+#000 - ブラック
+
+#ff0000 - レッド　                  エラーメッセージ・ゴミ箱マーク・お知らせ未読バッヂ
+#f08080 - ライトコーラル            ログアウトボタン・ダッシュボードお知らせの未読ステータス
+#be7676 - グレーレッド　            ログアウトボタンにカーソルを合わせたとき
+
+#dcfcf3 - ホワイトライトグリーン      ログイン画面のバックカラー
+#5bc8ac - ライトグリーン             フォームのボタン・必須バッヂ・完了メッセージのバックカラー
+#4ca594 - グレーライトグリーン        ライトグリーン適用ボタンのカーソルを合わせたときのカラー
+
+#666363 - ダークブラウングレー        デフォルトの文字カラーとして設定
+                                    ダッシュボードお知らせ右縦線・ページネーションのページ番号
+                                    セレクトボックス横の矢印に使用
+
+#a0a0a0 - ミドルグレー               ダッシュボードお知らせリスト下部・ログイン画面のインプット・お問い合わせ編集の縦線などに使用
+                                    アカウント・お問い合わせ一覧の表のボーダー
+
+
+#e5e7eb - ブルーライトグレー         ヘッダーナビゲーションメニューにカーソルを合わせたときのバックカラー
+                                    ヘッダーお知らせのボーダー・セレクトボックス関連の色
+                                    ページネーションのカーソルを合わせたときのカラー
+
+#ddd - ライトグレー                  お問い合わせ・アカウント登録フォームのボーダー
+                                    ダッシュボードお知らせの既読済みステータスバックカラー・表の見出しバックカラー
 */
 
 
@@ -30,7 +36,7 @@ body {
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 18px;
-    background-color: #ffffff;
+    background-color: #fff;
     color: #666363;
     /*フォントは後で要調整*/
 }
@@ -83,7 +89,7 @@ li {
     text-align: center;
     align-items: center;
     background: #5bc8ac;
-    color: #ffffff;
+    color: #fff;
 }
 
 /*--ここからログイン画面--*/
@@ -107,7 +113,7 @@ li {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .login-container label {
@@ -130,7 +136,7 @@ li {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    color: #ffffff;
+    color: #fff;
     background-color: #5bc8ac;
 }
 
@@ -170,7 +176,7 @@ header {
 }
 
 .header-contant-left button:hover {
-    background-color: #c4c5c5;
+    background-color: #e5e7eb;
 }
 
 .header-contant-left span {
@@ -206,7 +212,7 @@ header {
 }
 
 .logout-btn a {
-    color: #ffffff;
+    color: #fff;
     padding: 10px 20px;
     border-radius: 6px;
 }
@@ -236,7 +242,7 @@ header {
     top: 8px;
     left: 17px;
     background-color: #ff0000;
-    color: #ffffff;
+    color: #fff;
     border-radius: 50%;
     padding: 4px 5px;
     font-size: 12px;
@@ -248,8 +254,8 @@ header {
     /* メニューがトリガーボタンの下に表示されるように調整 */
     right: 0;
     z-index: 999;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -286,7 +292,7 @@ header {
 }
 
 .dashboard button a {
-    color: #ffffff;
+    color: #fff;
 }
 
 .dashboard button span {
@@ -296,7 +302,7 @@ header {
 .notification-list-aria {
     padding: 0 20px 0 10px;
     margin-right: 20px;
-    border-right: 1px solid #4b5563;
+    border-right: 1px solid #666363;
 }
 
 .notification-list-aria .sub-title {
@@ -321,7 +327,7 @@ header {
 }
 
 .notification-read-status {
-    background-color: #e0e0e0;
+    background-color: #ddd;
     padding: 3px 8px;
     border-radius: 6px;
     margin-left: 15px;
@@ -365,20 +371,20 @@ header {
     display: inline-block;
     text-align: center;
     background: #5bc8ac;
-    color: #ffffff;
+    color: #fff;
     font-size: 15px;
 }
 
 
 .form-item-input {
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     border-radius: 6px;
     margin-top: 15px;
     padding-left: 1em;
     padding-right: 1em;
     height: 45px;
     width: 100%;
-    background: #ffffff;
+    background: #fff;
 }
 
 .form-item textarea {
@@ -395,7 +401,7 @@ header {
     width: 115px;
     letter-spacing: 0.05em;
     background-color: #5bc8ac;
-    color: #ffffff;
+    color: #fff;
 }
 
 .form-btn:hover {
@@ -421,15 +427,15 @@ table {
 }
 
 table th {
-    border: 0.5px solid #bbbfc2;
+    border: 0.5px solid #a0a0a0;
     text-align: center;
     padding: 5px 15px;
-    background-color: #e0e0e0;
+    background-color: #ddd;
 }
 
 table td {
-    border: 0.5px solid #bbbfc2;
-    background-color: #ffffff;
+    border: 0.5px solid #a0a0a0;
+    background-color: #fff;
     padding: 10px 8px 10px 8px;
 }
 
@@ -453,15 +459,15 @@ table td {
 }
 
 .current-page {
-    background-color: #34d399;
-    color: #ffffff;
+    background-color: #5bc8ac;
+    color: #fff;
     padding: 0 8px;
     border-radius: 4px;
 }
 
 .page-link {
-    background-color: #ffffff;
-    color: #4b5563;
+    background-color: #fff;
+    color: #666363;
     padding: 0 8px;
     border-radius: 4px;
 }
@@ -561,7 +567,7 @@ table td {
 }
 
 .new-register-btn a {
-    color: #ffffff;
+    color: #fff;
 }
 
 .new-register-btn span {
@@ -594,7 +600,7 @@ table td {
 
 .search-form input[type="search"],
 .search-form select {
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     border-radius: 6px;
     padding: 10px;
     height: 42px;
@@ -605,7 +611,7 @@ table td {
     border-radius: 6px;
     padding: 6px 18px;
     background-color: #5bc8ac;
-    color: #ffffff;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -615,9 +621,9 @@ table td {
 
 select.minimal {
     background-image:
-        linear-gradient(45deg, transparent 50%, #808080 50%),
-        linear-gradient(135deg, #808080 50%, transparent 50%),
-        linear-gradient(to right, #cccccc, #cccccc);
+        linear-gradient(45deg, transparent 50%, #666363 50%),
+        linear-gradient(135deg, #666363 50%, transparent 50%),
+        linear-gradient(to right, #e5e7eb, #e5e7eb);
     background-position:
         calc(100% - 20px) calc(1em + 2px),
         calc(100% - 15px) calc(1em + 2px),
@@ -633,7 +639,7 @@ select.minimal:focus {
     background-image:
         linear-gradient(45deg, #5bc8ac 50%, transparent 50%),
         linear-gradient(135deg, transparent 50%, #5bc8ac 50%),
-        linear-gradient(to right, #cccccc, #cccccc);
+        linear-gradient(to right, #e5e7eb, #e5e7eb);
     background-position:
         calc(100% - 15px) 1em,
         calc(100% - 20px) 1em,
@@ -689,7 +695,7 @@ select:-moz-focusring {
 }
 
 .contact-form-container .form-item:nth-child(9) {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .contact-thanks .form-item {
@@ -698,7 +704,7 @@ select:-moz-focusring {
 }
 
 .contact-form-container .under-line {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ddd;
 }
 
 /*--ここまでお問い合わせフォーム--*/
