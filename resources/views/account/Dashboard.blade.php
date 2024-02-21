@@ -51,7 +51,7 @@
                         class="fa-solid fa-circle-plus"></span>新規アカウント登録</a></button>
 
             <button><a href="{{ route('account.list') }}">アカウント一覧</a></button>
-            <button><a href="">新規お知らせの作成</a></button>
+            <button><a href="{{ route('notification.create') }}">新規お知らせの作成</a></button>
         </div>
 
     </div>

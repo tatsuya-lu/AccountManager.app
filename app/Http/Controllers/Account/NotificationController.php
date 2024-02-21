@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account\Account;
 use Illuminate\Http\Request;
+use App\Http\Requests\Account\NotificationRequest;
 use App\Models\Account\Notification;
 use App\Models\Account\NotificationRead;
 
@@ -27,7 +29,7 @@ class NotificationController extends Controller
             $notificationRead->save();
         }
 
-        return view('account.Notification',compact('notification'));
+        return view('account.Notification', compact('notification'));
     }
 
     public function list(Request $request)
@@ -45,5 +47,26 @@ class NotificationController extends Controller
             ->orderBy('created_at', 'desc')
             ->orderBy('id', 'desc')
             ->paginate(7);
+    }
+
+    public function create()
+    {
+        return view('account.NotificationRegister');
+    }
+
+    public function store(NotificationRequest $request)
+    {
+        $notification = new Notification();
+        $notification->title = $request->title;
+        $notification->description = $request->description;
+        $notification->save();
+
+        // 全ユーザーの未読ステータスを追加
+        $users = Account::all();
+        foreach ($users as $user) {
+            $user->notifications()->attach($notification->id, ['read' => false]);
+        }
+
+        return redirect()->route('notification.list')->with('success', 'お知らせが作成されました。');
     }
 }

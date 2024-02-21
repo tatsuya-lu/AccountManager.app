@@ -79,6 +79,10 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     Route::get('/notification/list', [NotificationController::class, 'list'])->name('notification.list');
 
     Route::get('/notification/{notification}', [NotificationController::class, 'show'])->name('notification.show');
+
+    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notification.create');
+    
+    Route::post('/notifications', [NotificationController::class, 'store'])->name('notification.store');
 });
 
 Route::prefix('contact')->group(function () {
