@@ -67,6 +67,6 @@ class NotificationController extends Controller
             $user->notifications()->attach($notification->id, ['read' => false]);
         }
 
-        return redirect()->route('notification.list')->with('success', 'お知らせが作成されました。');
+        return redirect()->route('dashboard')->with('success', 'お知らせが作成されました。');
     }
 }
