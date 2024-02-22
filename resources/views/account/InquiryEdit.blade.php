@@ -16,7 +16,7 @@
     @endif
     <div class="inquiry-edit-container">
 
-        <div class="inquiry-form-contant">
+        <div class="inquiry-form-content">
             <form method="POST" action="{{ route('inquiry.update', $inquiry->id) }}">
                 @csrf
                 @method('PUT')

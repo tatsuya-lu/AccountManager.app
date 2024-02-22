@@ -23,10 +23,10 @@
 
 <body>
     <header>
-        <div class="header-contant-left">
+        <div class="header-content-left">
             <nav>
                 <ul>
-                    <li><span class="fa-solid fa-bars"></span>ロゴ</li><!--画像がまだ用意できていない-->
+                    <li class="logo">ロゴ</li><!--画像がまだ用意できていない-->
 
                     <li><button><a href="{{ route('dashboard') }}"><span
                                     class="fa-solid fa-house"></span>HOME</a></button></li>
@@ -42,7 +42,7 @@
             </nav>
         </div>
 
-        <div class="header-contant-right">
+        <div class="header-content-right">
             <div class="notification-aria" id="app">
                 <nav>
                     <button @click="toggleDropdown">
@@ -67,9 +67,9 @@
             </ul>
         </div>
     </header>
-        <main>
-            @yield('content')
-        </main>
+    <main>
+        @yield('content')
+    </main>
 
 
 

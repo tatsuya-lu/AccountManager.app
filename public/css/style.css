@@ -151,41 +151,41 @@ li {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
+
 }
 
-.header-contant-left {
+.header-content-left {
     margin-left: 15px;
+    margin-top: 5px;
 }
 
-.header-contant-right {
-    margin: 10px 15px 0 0;
+.header-content-right {
+    margin-right: 15px;
+    margin-top: 10px;
 }
 
-.header-contant-left li {
+.header-content-left li {
     display: inline;
     border-right: 1px solid #666363;
-    padding: 5px 5px 5px 0;
+    padding: 10px 5px 10px 0;
 
 }
 
-.header-contant-left button {
-    padding: 8px 10px;
+.header-content-left button {
+    padding: 10px 10px;
     border-radius: 6px;
 }
 
-.header-contant-left button:hover {
+.header-content-left button:hover {
     background-color: #e5e7eb;
 }
 
-.header-contant-left span {
+.header-content-left span {
     margin-right: 8px;
 }
 
-.header-contant-right {
+.header-content-right {
     display: flex;
-    margin-top: 20px;
 }
 
 .user-control-aria {
@@ -505,7 +505,7 @@ table td {
     display: flex;
 }
 
-.inquiry-form-contant {
+.inquiry-form-content {
     flex: 1;
 }
 

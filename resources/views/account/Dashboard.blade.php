@@ -38,7 +38,7 @@
                 @foreach ($unresolvedInquiries as $inquiry)
                     <li class="notification-title">{{ $inquiry->company }} {{ $inquiry->email }} </li>
                     <li class="notification-title-date">{{ \Carbon\Carbon::parse($inquiry->created_at)->format('m月d日') }}</li>
-                    <li class="notification-content">{{ $inquiry->body }}</li>
+                    <li class="notification-content"><a href="{{ route('inquiry.edit', $inquiry->id) }}">{{ $inquiry->body }}</a></li>
                 @endforeach
             </ul>
             <div class="pagenation">{{ $unresolvedInquiries->appends(Request::except('page'))->links('vendor.pagination.tailwind') }}</div>
