@@ -57,7 +57,7 @@ class InquiryController extends Controller
 
     public function unresolvedInquiries()
     {
-        return Post::where('status', 'default')->paginate(5);
+        return Post::where('status', 'default')->paginate(5, ['*'], 'page');
     }
 
     public function edit(Post $inquiry)

@@ -28,7 +28,7 @@
 
                 </ul>
             @endforeach
-            <div class="pagenation">{{ $notifications->links('vendor.pagination.tailwind') }}</div>
+            <div class="pagenation">{{ $notifications->appends(Request::except('notifications'))->links('vendor.pagination.tailwind') }}</div>
         </div>
 
         <div class="unresolved-inquiry-list-aria">
@@ -41,7 +41,7 @@
                     <li class="notification-content">{{ $inquiry->body }}</li>
                 @endforeach
             </ul>
-            <div class="pagenation">{{ $unresolvedInquiries->links('vendor.pagination.tailwind') }}</div>
+            <div class="pagenation">{{ $unresolvedInquiries->appends(Request::except('page'))->links('vendor.pagination.tailwind') }}</div>
         </div>
 
 
