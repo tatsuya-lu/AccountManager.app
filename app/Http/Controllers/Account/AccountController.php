@@ -34,7 +34,8 @@ class AccountController extends Controller
             ->pluck('notification_id')
             ->toArray();
 
-        $notifications = Notification::paginate(5, ['*'], 'dashboard_page');
+            $notifications = Notification::orderBy('id', 'desc') 
+            ->paginate(5, ['*'], 'dashboard_page');
         $unresolvedInquiryCount = $inquiryController->unresolvedInquiryCount();
         $unresolvedInquiries = $inquiryController->unresolvedInquiries('inquiry_page');
 

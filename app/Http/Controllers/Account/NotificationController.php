@@ -44,7 +44,6 @@ class NotificationController extends Controller
             $query->where('user_id', $user->id)
                 ->where('read', false);
         })
-            ->orderBy('created_at', 'desc')
             ->orderBy('id', 'desc')
             ->paginate(7);
     }
