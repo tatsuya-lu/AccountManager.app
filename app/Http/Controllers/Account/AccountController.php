@@ -34,7 +34,7 @@ class AccountController extends Controller
             ->pluck('notification_id')
             ->toArray();
 
-            $notifications = Notification::orderBy('id', 'desc') 
+        $notifications = Notification::orderBy('id', 'desc')
             ->paginate(5, ['*'], 'dashboard_page');
         $unresolvedInquiryCount = $inquiryController->unresolvedInquiryCount();
         $unresolvedInquiries = $inquiryController->unresolvedInquiries('inquiry_page');
@@ -89,7 +89,23 @@ class AccountController extends Controller
 
     public function accountList(Request $request)
     {
-        $users = Account::orderBy('created_at', 'asc')->where(function ($query) use ($request) {
+        $sort = $request->input('sort', 'newest');
+
+        $query = Account::query();
+
+        switch ($sort) {
+            case 'newest':
+                $query->orderBy('created_at', 'desc');
+                break;
+            case 'oldest':
+                $query->orderBy('created_at', 'asc');
+                break;
+            default:
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $users = $query->where(function ($query) use ($request) {
             if ($searchName = $request->input('search_name')) {
                 $query->where('name', 'LIKE', '%' . $searchName . '%');
             }
