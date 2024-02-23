@@ -71,7 +71,6 @@ li {
 }
 
 .main-content-aria {
-    margin-right: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 8px;
 }
@@ -442,7 +441,6 @@ table {
     border-spacing: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    margin-right: 20px;
     margin-top: 10px;
 }
 
@@ -588,7 +586,6 @@ table td {
 .new-register-btn {
     display: flex;
     justify-content: end;
-    margin-right: 20px;
     border-radius: 6px;
     padding: 0 8px;
     letter-spacing: 0.05em;
