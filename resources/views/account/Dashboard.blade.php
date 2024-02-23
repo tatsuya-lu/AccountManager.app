@@ -30,7 +30,7 @@
                     </ul>
                 @endforeach
                 <div class="pagenation">
-                    {{ $notifications->appends(Request::except('notifications'))->links('vendor.pagination.tailwind') }}
+                    {{ $notifications->appends(Request::except('notifications'))->links() }}
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                     @endforeach
                 </ul>
                 <div class="pagenation">
-                    {{ $unresolvedInquiries->appends(Request::except('page'))->links('vendor.pagination.tailwind') }}</div>
+                    {{ $unresolvedInquiries->appends(Request::except('page'))->links() }}</div>
             </div>
         </div>
 

@@ -11,10 +11,25 @@ class InquiryController extends Controller
 {
     public function index(Request $request)
     {
-        $inquiries = Post::orderBy('created_at', 'desc')
-            ->where(function ($query) use ($request) {
-                if ($searchStatus = $request->input('search_status')) {
-                    $statusValue = null;
+        $sort = $request->input('sort', 'newest');
+
+        $query = Post::query();
+
+        switch ($sort) {
+            case 'newest':
+                $query->orderBy('created_at', 'desc');
+                break;
+            case 'oldest':
+                $query->orderBy('created_at', 'asc');
+                break;
+            default:
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $inquiries = $query->where(function ($query) use ($request) {
+            if ($searchStatus = $request->input('search_status')) {
+                $statusValue = null;
 
                     switch ($searchStatus) {
                         case '未対応':
@@ -47,7 +62,7 @@ class InquiryController extends Controller
                 }
             })->paginate(20);
 
-        return view('account.InquiryList', compact('inquiries'));
+        return view('account.InquiryList', compact('inquiries', 'sort'));
     }
 
     public function unresolvedInquiryCount()
@@ -58,8 +73,8 @@ class InquiryController extends Controller
     public function unresolvedInquiries()
     {
         return Post::where('status', 'default')
-        ->orderBy('created_at', 'desc') 
-        ->paginate(5, ['*'], 'page');
+            ->orderBy('created_at', 'desc')
+            ->paginate(5, ['*'], 'page');
     }
 
     public function edit(Post $inquiry)

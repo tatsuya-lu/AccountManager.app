@@ -11,6 +11,14 @@
         <div class="search-form">
             <form>
                 <div class="search-form-item">
+                    <button><a href="{{ route('inquiry.list', ['sort' => 'newest']) }}">新しい順</a></button>
+                </div>
+
+                <div class="search-form-item">
+                    <button><a href="{{ route('inquiry.list', ['sort' => 'oldest']) }}">古い順</a></button>
+                </div>
+
+                <div class="search-form-item">
                     <select class=" minimal" name="search_status">
                         <option value="" selected>ステータスを選択</option>
                         <option value="default" {{ request('search_status') == 'default' ? 'selected' : '' }}>未対応</option>
