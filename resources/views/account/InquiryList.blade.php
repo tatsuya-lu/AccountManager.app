@@ -11,11 +11,11 @@
         <div class="search-form">
             <form>
                 <div class="search-form-item">
-                    <button><a href="{{ route('inquiry.list', ['sort' => 'newest']) }}">新しい順</a></button>
+                    <button class="sort-btn"><a href="{{ route('inquiry.list', ['sort' => 'newest']) }}">新しい順</a></button>
                 </div>
 
                 <div class="search-form-item">
-                    <button><a href="{{ route('inquiry.list', ['sort' => 'oldest']) }}">古い順</a></button>
+                    <button class="sort-btn"><a href="{{ route('inquiry.list', ['sort' => 'oldest']) }}">古い順</a></button>
                 </div>
 
                 <div class="search-form-item">

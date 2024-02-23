@@ -11,11 +11,11 @@
         <div class="search-form">
             <form>
                 <div class="search-form-item">
-                    <button><a href="{{ route('account.list', ['sort' => 'newest']) }}">新しい順</a></button>
+                    <button class="sort-btn"><a href="{{ route('account.list', ['sort' => 'newest']) }}">新しい順</a></button>
                 </div>
 
                 <div class="search-form-item">
-                    <button><a href="{{ route('account.list', ['sort' => 'oldest']) }}">古い順</a></button>
+                    <button class="sort-btn"><a href="{{ route('account.list', ['sort' => 'oldest']) }}">古い順</a></button>
                 </div>
                 <div class="search-form-item">
                     <input type="search" name="search_name" value="{{ request('search_name') }}" placeholder="名前を入力"
@@ -40,7 +40,7 @@
                 </div>
             </form>
         </div>
-        
+
         <div class="new-register-btn">
             <button><a href="{{ route('account.register.form') }}"><span
                         class="fa-solid fa-circle-plus"></span>新規作成</a></button>

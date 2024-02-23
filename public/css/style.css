@@ -54,6 +54,7 @@ a {
     color: #666363;
 }
 
+
 li {
     list-style: none;
 }
@@ -475,6 +476,22 @@ table td {
     display: flex;
     justify-content: end;
     margin: 10px 10px 15px 10px;
+}
+
+.sort-btn {
+    background-color: #5bc8ac;
+    border-radius: 3px;
+    padding: 3px;
+    width: 100px;
+    
+}
+
+.sort-btn a {
+    color: #fff;
+}
+
+.sort-btn:hover {
+    background-color: #4ca594;
 }
 
 .current-page {
