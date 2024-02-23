@@ -61,7 +61,6 @@ class NotificationController extends Controller
         $notification->description = $request->description;
         $notification->save();
 
-        // 全ユーザーの未読ステータスを追加
         $users = Account::all();
         foreach ($users as $user) {
             $user->notifications()->attach($notification->id, ['read' => false]);

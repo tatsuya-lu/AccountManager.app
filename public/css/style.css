@@ -274,6 +274,12 @@ header {
 .dashboard {
     max-height: fit-content;
     display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-content-left {
+    max-height: fit-content;
+    display: flex;
 }
 
 .dashboard button {
@@ -339,6 +345,19 @@ header {
     padding: 3px 8px;
     border-radius: 6px;
     margin-left: 15px;
+}
+
+.unresolved-inquiry-list-aria .notification-title {
+    margin-top: 15px;
+}
+
+.button-aria {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.button-aria button {
+    margin-bottom: 15px;
 }
 
 /*--ここまでダッシュボード画面--*/

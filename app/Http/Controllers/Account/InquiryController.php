@@ -11,7 +11,7 @@ class InquiryController extends Controller
 {
     public function index(Request $request)
     {
-        $inquiries = Post::orderBy('created_at', 'asc')
+        $inquiries = Post::orderBy('created_at', 'desc')
             ->where(function ($query) use ($request) {
                 if ($searchStatus = $request->input('search_status')) {
                     $statusValue = null;
@@ -57,7 +57,9 @@ class InquiryController extends Controller
 
     public function unresolvedInquiries()
     {
-        return Post::where('status', 'default')->paginate(5, ['*'], 'page');
+        return Post::where('status', 'default')
+        ->orderBy('created_at', 'desc') 
+        ->paginate(5, ['*'], 'page');
     }
 
     public function edit(Post $inquiry)
