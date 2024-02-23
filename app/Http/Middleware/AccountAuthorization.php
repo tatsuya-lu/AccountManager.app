@@ -15,11 +15,11 @@ class AccountAuthorization
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = $request->route('user');
+        $currentUser = $request->user('admin'); // 現在のログインユーザーを取得します。
 
-        // $userがnullでないことを確認する
-        if ($user !== null && ($request->user('admin')->admin_level == 1 || $request->user('admin')->id === $user->id)) {
-            return $next($request);
+        // 現在のユーザーが存在し、かつ管理者であるかどうかを確認します。
+        if ($currentUser !== null && $currentUser->admin_level == 1) {
+            return $next($request); // 管理者の場合は次の処理に進みます。
         }
 
         abort(403, '権限が無いためこの操作を実行できません。');
