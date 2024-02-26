@@ -24,7 +24,7 @@
 <body>
     <header>
         <div class="header-content-left">
-            <img class="logo" src="{{ asset('img/3742.png') }}" alt="">
+            <img class="logo" src="{{ asset('img/testlogo.png') }}" alt="">
             <nav>
                 <ul>
                     
