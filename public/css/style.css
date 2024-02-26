@@ -277,6 +277,10 @@ header {
     width: 700px;
 }
 
+.notification-list li:hover {
+    background-color: #e5e7eb;
+}
+
 .notification-date {
     float: right;
 
