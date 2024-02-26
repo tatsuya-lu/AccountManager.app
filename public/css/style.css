@@ -151,17 +151,32 @@ li {
 header {
     display: flex;
     justify-content: space-between;
+}
 
+.logo img{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.logo {
+    max-width: 50px;
+    max-height: 50px;
+    float: left;
 }
 
 .header-content-left {
     margin-left: 15px;
     margin-top: 5px;
+    display: flex;
 }
 
 .header-content-right {
     margin-right: 15px;
     margin-top: 10px;
+}
+
+.header-content-left nav {
+    margin-left: 10px;
 }
 
 .header-content-left li {
@@ -473,7 +488,7 @@ table td {
 .pagenation {
     display: flex;
     justify-content: end;
-    margin: 10px 10px 15px 10px;
+    margin: 10px 0 15px 10px;
 }
 
 .sort-btn {
@@ -523,7 +538,6 @@ table td {
 .item-float-right {
     float: right;
     margin-left: 30px;
-    margin-right: 10px;
 }
 
 .item-float-right2 {

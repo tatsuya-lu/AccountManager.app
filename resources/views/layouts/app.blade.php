@@ -24,9 +24,10 @@
 <body>
     <header>
         <div class="header-content-left">
+            <img class="logo" src="{{ asset('img/3742.png') }}" alt="">
             <nav>
                 <ul>
-                    <li class="logo">ロゴ</li><!--画像がまだ用意できていない-->
+                    
 
                     <li><button><a href="{{ route('dashboard') }}"><span
                                     class="fa-solid fa-house"></span>HOME</a></button></li>
