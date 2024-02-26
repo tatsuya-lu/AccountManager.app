@@ -60,17 +60,17 @@ class Account extends Model implements Authenticatable
 
     public function getRememberToken()
     {
-        return $this->remember_token; // ユーザーの"remember_token"を取得します
+        return $this->remember_token;
     }
 
     public function setRememberToken($value)
     {
-        $this->remember_token = $value; // ユーザーの"remember_token"を設定します
+        $this->remember_token = $value;
     }
 
     public function getRememberTokenName()
     {
-        return 'remember_token'; // "remember_token" カラム名を指定します
+        return 'remember_token'; 
     }
 
     public function createNotification($data)
