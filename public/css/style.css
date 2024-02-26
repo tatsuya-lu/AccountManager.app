@@ -347,6 +347,12 @@ header {
     padding-bottom: 5px;
 }
 
+.notification-content a:hover {
+    background-color: #e5e7eb;
+    border-radius: 3px;
+    padding: 5px;
+}
+
 .notification-read-status {
     background-color: #ddd;
     padding: 3px 8px;
@@ -491,22 +497,6 @@ table td {
     margin: 10px 0 15px 10px;
 }
 
-.sort-btn {
-    background-color: #5bc8ac;
-    border-radius: 3px;
-    padding: 3px;
-    width: 100px;
-    
-}
-
-.sort-btn a {
-    color: #fff;
-}
-
-.sort-btn:hover {
-    background-color: #4ca594;
-}
-
 .current-page {
     background-color: #5bc8ac;
     color: #fff;
@@ -619,6 +609,22 @@ table td {
 
 .new-register-btn span {
     margin-right: 5px;
+}
+
+.sort-btn {
+    background-color: #5bc8ac;
+    border-radius: 6px;
+    padding: 3px;
+    width: 100px;
+    margin-top: 5px;
+}
+
+.sort-btn a {
+    color: #fff;
+}
+
+.sort-btn:hover {
+    background-color: #4ca594;
 }
 
 .search-form-container {
