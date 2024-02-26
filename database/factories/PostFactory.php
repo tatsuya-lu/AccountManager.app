@@ -2,17 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\Contact\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Config;
 
 class PostFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
     public function definition()
     {
         $phoneNumber = $this->faker->numerify('###########');
