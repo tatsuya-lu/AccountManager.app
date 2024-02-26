@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact\Post;
 use App\Http\Requests\Account\InquiryRequest;
+use Illuminate\Support\Facades\Config;
 
 class InquiryController extends Controller
 {
@@ -62,6 +63,10 @@ class InquiryController extends Controller
                 }
             })->paginate(20);
 
+            foreach ($inquiries as $inquiry) {
+                $inquiry->status = config('const.status')[$inquiry->status] ?? $inquiry->status;
+            }
+
         return view('account.InquiryList', compact('inquiries', 'sort'));
     }
 
@@ -79,7 +84,12 @@ class InquiryController extends Controller
 
     public function edit(Post $inquiry)
     {
-        return view('account.InquiryEdit', compact('inquiry'));
+        $statusOptions = Config::get('const.status');
+        $inquiry->status = $statusOptions[$inquiry->status] ?? $inquiry->status;
+        $inquiry->gender = config('const.gender.' . $inquiry->gender);
+        $inquiry->profession = config('const.profession.' . $inquiry->profession);
+
+        return view('account.InquiryEdit', compact('inquiry', 'statusOptions'));
     }
 
     public function update(InquiryRequest $request, Post $inquiry)

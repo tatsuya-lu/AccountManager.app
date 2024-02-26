@@ -91,16 +91,10 @@
                         </form>
                     </td>
                     <td>{{ $user->name }}</td>
-                    <td>
-                        @if ($user->admin_level == 1)
-                            管理者
-                        @elseif ($user->admin_level == 2)
-                            社員
-                        @endif
-                    </td>
+                    <td>{{ $user->admin_level }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->tel }}</td>
-                    <td>{{ config('const.prefecture.' . $user->prefecture) }}</td>
+                    <td>{{ $user->prefecture }}</td>
                     <td>{{ $user->city }}</td>
                     <td>{{ $user->street }}</td>
                 </tr>

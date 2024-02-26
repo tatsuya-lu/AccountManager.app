@@ -24,7 +24,7 @@
                 <div class="form-item">
                     <label for="status">ステータス</label>
                     <select name="status" id="status" class="form-item-input minimal">
-                        @foreach (config('const.status') as $statusKey => $statusLabel)
+                        @foreach ($statusOptions as $statusKey => $statusLabel)
                             <option value="{{ $statusKey }}" {{ $inquiry->status === $statusKey ? 'selected' : '' }}>
                                 {{ $statusLabel }}
                             </option>
@@ -76,12 +76,12 @@
 
             <div class="info-item">
                 <label for="gender">性別</label>
-                <p>{{ config('const.gender.' . $inquiry->gender) }}</p>
+                <p>{{ $inquiry->gender }}</p>
             </div>
 
             <div class="info-item">
                 <label for="profession">職業</label>
-                <p>{{ config('const.profession.' . $inquiry->profession) }}</p>
+                <p>{{ $inquiry->profession }}</p>
             </div>
         </div>
     </div>
