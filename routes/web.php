@@ -5,23 +5,26 @@ use App\Http\Controllers\Account\LoginController;
 use App\Http\Controllers\Account\InquiryController;
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Contact\ContactsController;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 
+//ログイン処理
 Route::get('/login', function () {
     return view('account.Login');
 })->middleware('guest:admin');
-
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/dashboard', [AccountController::class, 'index'])
-    ->middleware('auth:admin')
-    ->name('dashboard');
 
+
+
+//ログアウト処理
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::prefix('account')->middleware(['auth:admin'])->group(function () {
+
+    Route::get('/dashboard', [AccountController::class, 'index'])
+    ->name('dashboard');
+
     // 既存のアカウント一覧表示
     Route::get('/list', [AccountController::class, 'accountList'])->name('account.list');
 
@@ -34,6 +37,7 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     // アカウント削除処理
     Route::delete('/{user}', [AccountController::class, 'destroy'])->name('account.destroy')->middleware('account.authorization');
 
+    //アカウント登録処理
     Route::get('/register', [AccountController::class, 'registerForm'])->name('account.register.form');
     Route::post('/register', [AccountController::class, 'register'])->name('account.register');
 
@@ -49,20 +53,24 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     // お問い合わせ削除処理
     Route::delete('/inquiry/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiry.destroy');
 
+    //お知らせ取得
     Route::get('/notification/list', [NotificationController::class, 'list'])->name('notification.list');
 
     Route::get('/notification/{notification}', [NotificationController::class, 'show'])->name('notification.show');
 
-    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notification.create')->middleware('account.authorization');
-    
+    //お知らせ登録処理
+    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notification.create')->middleware('account.authorization'); 
     Route::post('/notifications', [NotificationController::class, 'store'])->name('notification.store');
 });
 
 Route::prefix('contact')->group(function () {
+
     //入力フォームページ
     Route::get('/', [ContactsController::class, 'index'])->name('contact.index');
+
     //確認フォームページ
     Route::post('/confirm', [ContactsController::class, 'confirm'])->name('contact.confirm');
+
     //送信完了フォームページ
     Route::post('/thanks', [ContactsController::class, 'send'])->name('contact.send');
 });
