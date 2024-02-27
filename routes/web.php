@@ -9,21 +9,16 @@ use Illuminate\Support\Facades\Route;
 
 
 //ログイン処理
-Route::get('/login', function () {
-    return view('account.Login');
-})->middleware('guest:admin');
+Route::get('/login', [LoginController::class, 'show'])->middleware('guest:admin');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
-
-
-
 
 //ログアウト処理
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::prefix('account')->middleware(['auth:admin'])->group(function () {
 
-    Route::get('/dashboard', [AccountController::class, 'index'])
-    ->name('dashboard');
+    //ダッシュボードの表示
+    Route::get('/dashboard', [AccountController::class, 'index'])->name('dashboard');
 
     // 既存のアカウント一覧表示
     Route::get('/list', [AccountController::class, 'accountList'])->name('account.list');
@@ -59,7 +54,7 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
     Route::get('/notification/{notification}', [NotificationController::class, 'show'])->name('notification.show');
 
     //お知らせ登録処理
-    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notification.create')->middleware('account.authorization'); 
+    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notification.create')->middleware('account.authorization');
     Route::post('/notifications', [NotificationController::class, 'store'])->name('notification.store');
 });
 

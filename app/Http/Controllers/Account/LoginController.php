@@ -9,6 +9,16 @@ use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest:admin')->except('logout');
+    }
+
+    public function show()
+    {
+        return view('account.login');
+    }
     
     public function login(Request $request)
     {
@@ -26,11 +36,6 @@ class LoginController extends Controller
         return back()->withErrors([
             'error' => '入力された内容が一致しませんでした。'
         ]);
-    }
-
-    public function __construct()
-    {
-        $this->middleware('guest:admin')->except('logout');
     }
 
     public function logout(Request $request)
