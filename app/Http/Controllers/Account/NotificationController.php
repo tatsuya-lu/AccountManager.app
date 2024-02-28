@@ -17,7 +17,7 @@ class NotificationController extends Controller
         $user = $request->user();
 
         if (!$user) {
-            abort(403, 'Unauthorized action.');
+            abort(403, '権限がないためこの操作を実行できません。');
         }
 
         $notificationRead = NotificationRead::where('user_id', $user->id)
@@ -37,7 +37,7 @@ class NotificationController extends Controller
         $user = $request->user();
 
         if (!$user) {
-            abort(403, 'Unauthorized action.');
+            abort(403, '権限がないためこの操作を実行できません。');
         }
 
         return Notification::whereHas('reads', function ($query) use ($user) {
