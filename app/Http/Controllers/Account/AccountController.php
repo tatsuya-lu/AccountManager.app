@@ -22,8 +22,6 @@ class AccountController extends Controller
     {
         $this->prefectures = config('const.prefecture');
         $this->adminLevels = config('const.admin_level');
-
-        view()->share(['prefectures' => $this->prefectures, 'admin_levels' => $this->adminLevels]);
     }
 
     public function index(Request $request, InquiryController $inquiryController)
