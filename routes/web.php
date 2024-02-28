@@ -59,7 +59,7 @@ Route::prefix('account')->middleware(['auth:admin'])->group(function () {
 });
 
 Route::prefix('contact')->group(function () {
-
+    
     //入力フォームページ
     Route::get('/', [ContactsController::class, 'index'])->name('contact.index');
 

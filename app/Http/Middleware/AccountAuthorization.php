@@ -16,6 +16,6 @@ class AccountAuthorization
             return $next($request); 
         }
 
-        abort(403, '権限が無いためこの操作を実行できません。');
+        abort(403, '権限が無いためこの操作を実行できません。前のページに戻ってください。');
     }
 }
