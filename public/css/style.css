@@ -1,44 +1,11 @@
 @charset "UTF-8";
 
-
-/*使用中のカラー
-#fff - ホワイト
-#000 - ブラック
-
-#ff0000 - レッド　                  エラーメッセージ・ゴミ箱マーク・お知らせ未読バッヂ
-#f08080 - ライトコーラル            ログアウトボタン・ダッシュボードお知らせの未読ステータス
-#be7676 - グレーレッド　            ログアウトボタンにカーソルを合わせたとき
-
-#dcfcf3 - ホワイトライトグリーン      ログイン画面のバックカラー
-#5bc8ac - ライトグリーン             フォームのボタン・必須バッヂ・完了メッセージのバックカラー
-#4ca594 - グレーライトグリーン        ライトグリーン適用ボタンのカーソルを合わせたときのカラー
-
-#666363 - ダークブラウングレー        デフォルトの文字カラーとして設定
-                                    ダッシュボードお知らせ右縦線・ページネーションのページ番号
-                                    セレクトボックス横の矢印に使用
-
-#a0a0a0 - ミドルグレー               ダッシュボードお知らせリスト下部・ログイン画面のインプット・お問い合わせ編集の縦線などに使用
-                                    アカウント・お問い合わせ一覧の表のボーダー
-
-
-#e5e7eb - ブルーライトグレー         ヘッダーナビゲーションメニューにカーソルを合わせたときのバックカラー
-                                    ヘッダーお知らせのボーダー・セレクトボックス関連の色
-                                    ページネーションのカーソルを合わせたときのカラー
-
-#ddd - ライトグレー                  お問い合わせ・アカウント登録フォームのボーダー
-                                    ダッシュボードお知らせの既読済みステータスバックカラー・表の見出しバックカラー
-*/
-
-
-
-
 body {
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 18px;
     background-color: #fff;
     color: #666363;
-    /*フォントは後で要調整*/
 }
 
 select {
@@ -153,7 +120,7 @@ header {
     justify-content: space-between;
 }
 
-.logo img{
+.logo img {
     max-width: 50px;
     max-height: 50px;
 }
@@ -266,7 +233,6 @@ header {
 .notification-list {
     position: absolute;
     top: calc(50% + 10px);
-    /* メニューがトリガーボタンの下に表示されるように調整 */
     right: 0;
     z-index: 999;
     background-color: #fff;
@@ -283,7 +249,6 @@ header {
 
 .notification-date {
     float: right;
-
 }
 
 /*--ここまでお知らせ機能--*/
@@ -723,9 +688,6 @@ select:-moz-focusring {
     margin-left: auto;
     margin-right: auto;
     max-width: 720px;
-    /*スマートフォン用*/
-    /* display: flex;
-    justify-content: center; */
 }
 
 .contact-form-container .form-item {

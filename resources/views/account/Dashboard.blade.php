@@ -54,9 +54,12 @@
             <div class="button-aria">
                 <button><a href="{{ route('account.register.form') }}"><span
                             class="fa-solid fa-circle-plus"></span>新規アカウント登録</a></button>
-
-                <button><a href="{{ route('account.list') }}">アカウント一覧</a></button>
-                <button><a href="{{ route('notification.create') }}">新規お知らせの作成</a></button>
+                <button><a href="{{ route('account.list') }}"><span
+                    class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></button>
+                <button><a href="{{ route('notification.create') }}"><span
+                            class="fa-solid fa-circle-plus"></span>新規お知らせの作成</a></button>
+                            <button><a href="{{ route('inquiry.list') }}"><span
+                                class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></button>
             </div>
 
         </div>
