@@ -9,8 +9,8 @@
         <p class="page-title">お知らせ情報</p>
     </div>
 
-    <div>
+    <div class="form-item">
         <p class="sub-title">{{ $notification->title }}</p>
-        <p>{{ $notification->description }}</p>
+        <p class="form-item-input form-item-textarea">{{ $notification->description }}</p>
     </div>
 @endsection
