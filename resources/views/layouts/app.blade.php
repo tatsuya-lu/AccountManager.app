@@ -24,21 +24,21 @@
 <body>
     <header>
         <div class="header-content-left">
-            <img class="logo" src="{{ asset('img/testlogo.png') }}" alt="">
+            <img class="logo" src="{{ asset('img/testlogo.png') }}" alt="ロゴ画像">
             <nav>
                 <ul>
                     
 
-                    <li><button><a href="{{ route('dashboard') }}"><span
-                                    class="fa-solid fa-house"></span>HOME</a></button></li>
+                    <li><a href="{{ route('dashboard') }}"><button><span
+                                    class="fa-solid fa-house"></span>HOME</button></a></li>
 
 
-                    <li><button><a href="{{ route('account.list') }}"><span
-                                    class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></button></li>
+                    <li><a href="{{ route('account.list') }}"><button><span
+                                    class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</button></a></li>
 
 
-                    <li><button><a href="{{ route('inquiry.list') }}"><span
-                                    class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></button></li>
+                    <li><a href="{{ route('inquiry.list') }}"><button><span
+                                    class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</button></a></li>
                 </ul>
             </nav>
         </div>
@@ -64,7 +64,7 @@
             </div>
             <ul class="user-control-aria">
                 <li class="logged-in-user-text">ログイン中： {{ Auth::guard('admin')->user()->name }}</li>
-                <li><button class="logout-btn"><a href="{{ route('logout') }}">ログアウト</a></button></li>
+                <li><a href="{{ route('logout') }}"><button class="logout-btn">ログアウト</button></a></li>
             </ul>
         </div>
     </header>

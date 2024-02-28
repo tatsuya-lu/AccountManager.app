@@ -150,7 +150,6 @@ header {
     display: inline;
     border-right: 1px solid #666363;
     padding: 10px 5px 10px 0;
-
 }
 
 .header-content-left button {
@@ -164,6 +163,7 @@ header {
 
 .header-content-left span {
     margin-right: 8px;
+    color: #666363;
 }
 
 .header-content-right {
@@ -193,9 +193,9 @@ header {
     background-color: #be7676;
 }
 
-.logout-btn a {
+.user-control-aria button {
     color: #fff;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 6px;
 }
 
@@ -316,10 +316,9 @@ header {
     padding-bottom: 5px;
 }
 
-.notification-content a:hover {
+.notification-content:hover {
     background-color: #e5e7eb;
     border-radius: 3px;
-    padding: 5px;
 }
 
 .notification-read-status {
@@ -348,6 +347,7 @@ header {
 
 .button-aria button {
     margin-bottom: 15px;
+    color: #fff;
 }
 
 /*--ここまでダッシュボード画面--*/
@@ -563,7 +563,7 @@ table td {
     padding: 0 8px;
     letter-spacing: 0.05em;
     background-color: #5bc8ac;
-    text-align: center;
+    align-items: center;
     max-width: fit-content;
     height: 40px;
 }
@@ -572,7 +572,7 @@ table td {
     background-color: #4ca594;
 }
 
-.new-register-btn a {
+.new-register-btn button {
     color: #fff;
 }
 
@@ -586,9 +586,6 @@ table td {
     padding: 3px;
     width: 100px;
     margin-top: 5px;
-}
-
-.sort-btn a {
     color: #fff;
 }
 

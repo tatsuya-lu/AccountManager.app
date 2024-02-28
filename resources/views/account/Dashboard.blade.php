@@ -23,9 +23,10 @@
                         </li>
                         <li class="notification-title-date">
                             {{ \Carbon\Carbon::parse($notification->created_at)->format('m月d日') }}</li>
-                        <li class="notification-content"><a
-                                href="{{ route('notification.show', ['notification' => $notification->id]) }}">{{ $notification->description }}</a>
-                        </li>
+                        <a href="{{ route('notification.show', ['notification' => $notification->id]) }}">
+                            <li class="notification-content">{{ $notification->description }}
+                            </li>
+                        </a>
 
                     </ul>
                 @endforeach
@@ -41,8 +42,9 @@
                         <li class="notification-title">{{ $inquiry->company }} {{ $inquiry->email }} </li>
                         <li class="notification-title-date">
                             {{ \Carbon\Carbon::parse($inquiry->created_at)->format('m月d日') }}</li>
-                        <li class="notification-content"><a
-                                href="{{ route('inquiry.edit', $inquiry->id) }}">{{ $inquiry->body }}</a></li>
+                        <a href="{{ route('inquiry.edit', $inquiry->id) }}">
+                            <li class="notification-content">{{ $inquiry->body }}</li>
+                        </a>
                     @endforeach
                 </ul>
                 <div class="pagenation">
@@ -52,14 +54,14 @@
 
         <div class="dashboard-content-right">
             <div class="button-aria">
-                <button><a href="{{ route('account.register.form') }}"><span
-                            class="fa-solid fa-circle-plus"></span>新規アカウント登録</a></button>
-                <button><a href="{{ route('account.list') }}"><span
-                    class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</a></button>
-                <button><a href="{{ route('notification.create') }}"><span
-                            class="fa-solid fa-circle-plus"></span>新規お知らせの作成</a></button>
-                            <button><a href="{{ route('inquiry.list') }}"><span
-                                class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</a></button>
+                <a href="{{ route('account.register.form') }}"><button><span
+                            class="fa-solid fa-circle-plus"></span>新規アカウント登録</button></a>
+                <a href="{{ route('account.list') }}"><button><span
+                            class="fa-solid fa-envelopes-bulk"></span>アカウント一覧</button></a>
+                <a href="{{ route('notification.create') }}"><button><span
+                            class="fa-solid fa-circle-plus"></span>新規お知らせの作成</button></a>
+                <a href="{{ route('inquiry.list') }}"><button><span
+                            class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</button></a>
             </div>
 
         </div>
