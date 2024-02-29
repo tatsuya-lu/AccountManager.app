@@ -9,14 +9,14 @@
 
     <div class="search-form-container">
         <div class="search-form">
-            <form>
-                <div class="search-form-item">
-                    <a href="{{ route('account.list', ['sort' => 'newest']) }}"><button class="sort-btn">新しい順</button></a>
-                </div>
+            <div class="search-form-item">
+                <a href="{{ route('account.list', ['sort' => 'newest']) }}"><button class="sort-btn">新しい順</button></a>
+            </div>
 
-                <div class="search-form-item">
-                    <a href="{{ route('account.list', ['sort' => 'oldest']) }}"><button class="sort-btn">古い順</button></a>
-                </div>
+            <div class="search-form-item">
+                <a href="{{ route('account.list', ['sort' => 'oldest']) }}"><button class="sort-btn">古い順</button></a>
+            </div>
+            <form>
                 <div class="search-form-item">
                     <input type="search" name="search_name" value="{{ request('search_name') }}" placeholder="名前を入力"
                         aria-label="名前を検索...">

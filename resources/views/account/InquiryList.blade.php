@@ -9,15 +9,14 @@
         <p class="page-title">お問い合わせ一覧</p>
 
         <div class="search-form">
+            <div class="search-form-item">
+                <a href="{{ route('inquiry.list', ['sort' => 'newest']) }}"><button class="sort-btn">新しい順</button></a>
+            </div>
+
+            <div class="search-form-item">
+                <a href="{{ route('inquiry.list', ['sort' => 'oldest']) }}"><button class="sort-btn">古い順</button></a>
+            </div>
             <form>
-                <div class="search-form-item">
-                    <a href="{{ route('inquiry.list', ['sort' => 'newest']) }}"><button class="sort-btn">新しい順</button></a>
-                </div>
-
-                <div class="search-form-item">
-                    <a href="{{ route('inquiry.list', ['sort' => 'oldest']) }}"><button class="sort-btn">古い順</button></a>
-                </div>
-
                 <div class="search-form-item">
                     <select class=" minimal" name="search_status">
                         <option value="" selected>ステータスを選択</option>
