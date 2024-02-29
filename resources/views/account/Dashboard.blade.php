@@ -5,8 +5,14 @@
 @endsection
 
 @section('content')
-    <p class="page-title">
-        HOME</p>
+    <p class="page-title">HOME</p>
+
+    @if (session('success'))
+        <div class="success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="main-content-aria dashboard">
         <div class="dashboard-content-left">
 

@@ -12,17 +12,17 @@
         @csrf
 
         <div class="form-item">
-            <label for="title">タイトル</label>
-            <input class="form-item-input" id="title" type="text" name="title" value="{{ old('title') }}" required autofocus>
+            <label for="title"><span class="required">必須</span>タイトル</label>
+            <input class="form-item-input" id="title" type="text" name="title" value="{{ old('title') }}">
 
             @error('title')
-                <span>{{ $message }}</span>
+                <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="form-item">
-            <label for="description">内容</label>
-            <textarea class="form-item-input" id="description" name="description" required>{{ old('description') }}</textarea>
+            <label for="description"><span class="required">必須</span>内容</label>
+            <textarea class="form-item-input" id="description" name="description">{{ old('description') }}</textarea>
 
             @error('description')
                 <p class="error-message">{{ $message }}</p>
