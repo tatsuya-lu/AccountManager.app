@@ -24,7 +24,7 @@ return [
         ],
         'admin_users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Account\Account::class,
+            'model' => App\Models\Account::class,
         ],
     ],
 
