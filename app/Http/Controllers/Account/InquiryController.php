@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Contact\Post;
+use App\Models\Post;
 use App\Http\Requests\Account\InquiryRequest;
 use Illuminate\Support\Facades\Config;
 
@@ -32,40 +32,40 @@ class InquiryController extends Controller
             if ($searchStatus = $request->input('search_status')) {
                 $statusValue = null;
 
-                    switch ($searchStatus) {
-                        case '未対応':
-                            $statusValue = 'default';
-                            break;
-                        case '対応中':
-                            $statusValue = 'checking';
-                            break;
-                        case '対応済み':
-                            $statusValue = 'checked';
-                            break;
-                        case 'default':
-                        case 'checking':
-                        case 'checked':
-                            $statusValue = $searchStatus;
-                            break;
-                    }
-
-                    if ($statusValue !== null) {
-                        $query->where('status', $statusValue);
-                    }
+                switch ($searchStatus) {
+                    case '未対応':
+                        $statusValue = 'default';
+                        break;
+                    case '対応中':
+                        $statusValue = 'checking';
+                        break;
+                    case '対応済み':
+                        $statusValue = 'checked';
+                        break;
+                    case 'default':
+                    case 'checking':
+                    case 'checked':
+                        $statusValue = $searchStatus;
+                        break;
                 }
 
-                if ($searchCompany = $request->input('search_company')) {
-                    $query->where('company', 'LIKE', "%{$searchCompany}%");
+                if ($statusValue !== null) {
+                    $query->where('status', $statusValue);
                 }
-
-                if ($searchTel = $request->input('search_tel')) {
-                    $query->where('tel', 'LIKE', "%{$searchTel}%");
-                }
-            })->paginate(20);
-
-            foreach ($inquiries as $inquiry) {
-                $inquiry->status = config('const.status')[$inquiry->status] ?? $inquiry->status;
             }
+
+            if ($searchCompany = $request->input('search_company')) {
+                $query->where('company', 'LIKE', "%{$searchCompany}%");
+            }
+
+            if ($searchTel = $request->input('search_tel')) {
+                $query->where('tel', 'LIKE', "%{$searchTel}%");
+            }
+        })->paginate(20);
+
+        foreach ($inquiries as $inquiry) {
+            $inquiry->status = config('const.status')[$inquiry->status] ?? $inquiry->status;
+        }
 
         return view('account.InquiryList', compact('inquiries', 'sort'));
     }

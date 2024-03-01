@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Account\Account;
+use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
 use Config;
 

@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Models\Account\Account;
+use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Account\AccountRequest;
-use App\Models\Account\Notification;
-use App\Models\Account\NotificationRead;
+use App\Models\Notification;
+use App\Models\NotificationRead;
 
 class AccountController extends Controller
 {

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use App\Models\Account\Account;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Http\Requests\Account\NotificationRequest;
-use App\Models\Account\Notification;
-use App\Models\Account\NotificationRead;
+use App\Models\Notification;
+use App\Models\NotificationRead;
 
 class NotificationController extends Controller
 {
