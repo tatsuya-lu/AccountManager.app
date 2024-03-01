@@ -25,6 +25,39 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        \DB::table('accounts')->insert([
+            [
+                'name' => 'システム管理者',
+                'sub_name' => '',
+                'email' => 'owner@example.com',
+                'password' => \Hash::make('password'),
+                'tel' => '',
+                'post_code' => '',
+                'prefecture' => '',
+                'city' => '',
+                'street' => '',
+                'comment' => '',
+                'admin_level' => 1, 
+                'created_at' => '2024-01-01 00:00:00',
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'システム管理者',
+                'sub_name' => '',
+                'email' => 'sub@example.com',
+                'password' => \Hash::make('password'),
+                'tel' => '',
+                'post_code' => '',
+                'prefecture' => '',
+                'city' => '',
+                'street' => '',
+                'comment' => '',
+                'admin_level' => 2, 
+                'created_at' => '2024-01-01 00:00:00',
+                'updated_at' => now(),
+            ],
+        ]);
     }
 
     public function down(): void

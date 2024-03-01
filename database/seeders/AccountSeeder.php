@@ -10,7 +10,7 @@ class AccountSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('accounts')->delete();
+        // DB::table('accounts')->delete();
 
         Account::factory()->count(100)->create();
     }
