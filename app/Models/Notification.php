@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Account;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Account\NotificationRead;
+use App\Models\NotificationRead;
 
 class Notification extends Model
 {
