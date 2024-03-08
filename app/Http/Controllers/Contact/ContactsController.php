@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Contact;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
 use App\Http\Requests\Contact\ContactRequest;
+use App\Services\ContactService;
 
 
 class ContactsController extends Controller
 {
 
+    protected $contactService;
     protected $genders;
     protected $professions;
 
-    public function __construct()
+    public function __construct(ContactService $contactService)
     {
+        $this->contactService = $contactService;
         $this->genders = config('const.gender');
         $this->professions = config('const.profession');
     }
@@ -51,17 +53,7 @@ class ContactsController extends Controller
                 ->withInput($inputs);
         } else {
             $request->session()->regenerateToken();
-
-            $post = Post::create([
-                'company' => $request->company,
-                'name' => $request->name,
-                'tel' => $request->tel,
-                'email' => $request->email,
-                'birthday' => $request->birthday,
-                'gender' => $request->gender,
-                'profession' => $request->profession,
-                'body' => $request->body
-            ]);
+            $post = $this->contactService->store($inputs);
 
             $genders = $this->genders;
             $professions = $this->professions;
