@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Models\Account;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use App\Http\Requests\Account\AccountRequest;
+use App\Models\Account;
 use App\Models\Notification;
 use App\Models\NotificationRead;
+use App\Services\AccountService;
 
 class AccountController extends Controller
 {
@@ -17,9 +17,11 @@ class AccountController extends Controller
 
     protected $prefectures;
     protected $adminLevels;
+    protected $accountService;
 
-    public function __construct()
+    public function __construct(AccountService $accountService)
     {
+        $this->accountService = $accountService;
         $this->prefectures = config('const.prefecture');
         $this->adminLevels = config('const.admin_level');
     }
@@ -49,32 +51,9 @@ class AccountController extends Controller
         return view('account.Register', compact('user', 'prefectures', 'adminLevels'));
     }
 
-    protected function registerDatabase(array $data)
-    {
-        $user = Account::create([
-            'name' => $data['name'],
-            'sub_name' => $data['sub_name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'tel' => $data['tel'],
-            'post_code' => $data['post_code'],
-            'prefecture' => $data['prefecture'],
-            'city' => $data['city'],
-            'street' => $data['street'],
-            'comment' => $data['comment'] !== null ? $data['comment'] : '',
-            'admin_level' => intval($data['admin_level']),
-        ]);
-
-        if ($user) {
-            session()->flash('registered_message', 'アカウントが正常に登録されました。');
-        }
-
-        return $user;
-    }
-
     public function register(AccountRequest $request)
     {
-        $user = $this->registerDatabase($request->all());
+        $user = $this->accountService->register($request->all());
 
         if ($user) {
             session()->flash('registered_message', 'アカウントが正常に登録されました。');
@@ -130,21 +109,7 @@ class AccountController extends Controller
 
     public function update(AccountRequest $request, Account $user)
     {
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->tel = $request->tel;
-        $user->prefecture = $request->prefecture;
-        $user->post_code = $request->post_code;
-        $user->city = $request->city;
-        $user->street = $request->street;
-        $user->comment = $request->comment;
-        $user->admin_level = $request->admin_level;
-
-        if ($request->filled('password')) {
-            $user->password = bcrypt($request->password);
-        }
-
-        $user->save();
+        $this->accountService->update($user, $request->all());
 
         return redirect()->route('account.list')->with('success', 'ユーザーが正常に更新されました。');
     }
@@ -159,7 +124,8 @@ class AccountController extends Controller
 
     public function destroy(Account $user)
     {
-        $user->delete();
+        $this->accountService->delete($user);
+
         return redirect()->route('account.list')->with('success', 'ユーザーが正常に削除されました。');
     }
 }
