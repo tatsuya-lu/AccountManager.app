@@ -7,10 +7,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Account\AccountRequest;
 use App\Models\Account;
-use App\Models\Notification;
-use App\Models\NotificationRead;
 use App\Services\AccountService;
 use App\Services\InquiryService;
+use App\Services\NotificationService;
 
 class AccountController extends Controller
 {
@@ -20,30 +19,24 @@ class AccountController extends Controller
     protected $adminLevels;
     protected $accountService;
     protected $inquiryService;
+    protected $notificationService;
 
-    public function __construct(AccountService $accountService, InquiryService $inquiryService)
+    public function __construct(AccountService $accountService, InquiryService $inquiryService, NotificationService $notificationService)
     {
         $this->prefectures = config('const.prefecture');
         $this->adminLevels = config('const.admin_level');
         $this->accountService = $accountService;
         $this->inquiryService = $inquiryService; 
+        $this->notificationService = $notificationService;
     }
 
     public function index(Request $request)
     {
-        $user = auth()->user();
-        $readNotificationIds = NotificationRead::where('user_id', $user->id)
-            ->where('read', true)
-            ->pluck('notification_id')
-            ->toArray();
-
-        $notifications = Notification::orderBy('id', 'desc')
-            ->paginate(5, ['*'], 'dashboard_page');
-
+        $notificationData = $this->notificationService->getNotificationsForDashboard();
         $unresolvedInquiryCount = $this->inquiryService->unresolvedInquiryCount();
         $unresolvedInquiries = $this->inquiryService->unresolvedInquiries();
 
-        return view('account.Dashboard', compact('notifications', 'readNotificationIds', 'unresolvedInquiryCount', 'unresolvedInquiries'));
+        return view('account.Dashboard', compact('notificationData', 'unresolvedInquiryCount', 'unresolvedInquiries'));
     }
 
     public function registerForm(Request $request)
@@ -128,7 +121,7 @@ class AccountController extends Controller
 
     public function destroy(Account $user)
     {
-        $this->accountService->delete($user);
+        $this->accountService->destroy($user);
 
         return redirect()->route('account.list')->with('success', 'ユーザーが正常に削除されました。');
     }

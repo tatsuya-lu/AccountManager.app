@@ -62,7 +62,7 @@ class NotificationController extends Controller
 
     public function store(NotificationRequest $request)
     {
-        $notification = $this->notificationService->createNotification(
+        $notification = $this->notificationService->store(
             $request->title,
             $request->description
         );

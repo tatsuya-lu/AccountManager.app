@@ -48,7 +48,7 @@ class AccountService
         return $user;
     }
 
-    public function delete(Account $user)
+    public function destroy(Account $user)
     {
         $user->delete();
     }

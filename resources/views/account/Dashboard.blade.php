@@ -18,10 +18,10 @@
 
             <div class="notification-list-aria">
                 <p class="sub-title">お知らせ一覧</p>
-                @foreach ($notifications as $notification)
+                @foreach ($notificationData['notifications'] as $notification)
                     <ul>
                         <li class="notification-title">{{ $notification->title }}
-                            @if (in_array($notification->id, $readNotificationIds))
+                            @if (in_array($notification->id, $notificationData['readNotificationIds']))
                                 <div class="notification-read-status">既読済み</div>
                             @else
                                 <div class="notification-not-read-status">未読</div>
@@ -37,7 +37,7 @@
                     </ul>
                 @endforeach
                 <div class="pagenation">
-                    {{ $notifications->appends(Request::except('notifications'))->links() }}
+                    {{ $notificationData['notifications']->appends(Request::except('notifications'))->links('') }}
                 </div>
             </div>
 
