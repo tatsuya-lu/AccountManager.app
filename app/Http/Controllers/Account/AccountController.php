@@ -21,9 +21,9 @@ class AccountController extends Controller
 
     public function __construct(AccountService $accountService)
     {
-        $this->accountService = $accountService;
         $this->prefectures = config('const.prefecture');
         $this->adminLevels = config('const.admin_level');
+        $this->accountService = $accountService;
     }
 
     public function index(Request $request, InquiryController $inquiryController)

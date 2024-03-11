@@ -10,15 +10,15 @@ use App\Services\ContactService;
 class ContactsController extends Controller
 {
 
-    protected $contactService;
     protected $genders;
     protected $professions;
+    protected $contactService;
 
     public function __construct(ContactService $contactService)
     {
-        $this->contactService = $contactService;
         $this->genders = config('const.gender');
         $this->professions = config('const.profession');
+        $this->contactService = $contactService;
     }
 
     public function index()
