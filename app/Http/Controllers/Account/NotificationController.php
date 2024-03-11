@@ -3,14 +3,21 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Http\Requests\Account\NotificationRequest;
 use App\Models\Notification;
 use App\Models\NotificationRead;
+use App\Services\NotificationService;
 
 class NotificationController extends Controller
 {
+
+    protected $notificationService;
+
+    public function __construct(NotificationService $notificationService)
+    {
+        $this->notificationService = $notificationService;
+    }
 
     public function show(Request $request, Notification $notification)
     {
@@ -55,15 +62,10 @@ class NotificationController extends Controller
 
     public function store(NotificationRequest $request)
     {
-        $notification = new Notification();
-        $notification->title = $request->title;
-        $notification->description = $request->description;
-        $notification->save();
-
-        $users = Account::all();
-        foreach ($users as $user) {
-            $user->notifications()->attach($notification->id, ['read' => false]);
-        }
+        $notification = $this->notificationService->createNotification(
+            $request->title,
+            $request->description
+        );
 
         return redirect()->route('dashboard')->with('success', '新しくお知らせが作成されました。');
     }

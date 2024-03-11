@@ -11,6 +11,7 @@ class Notification extends Model
     use HasFactory;
 
     protected $appends = ['url', 'date'];
+    protected $fillable = ['title', 'description'];
 
     public function reads()
     {
