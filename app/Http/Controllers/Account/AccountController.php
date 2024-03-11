@@ -10,6 +10,7 @@ use App\Models\Account;
 use App\Models\Notification;
 use App\Models\NotificationRead;
 use App\Services\AccountService;
+use App\Services\InquiryService;
 
 class AccountController extends Controller
 {
@@ -18,15 +19,17 @@ class AccountController extends Controller
     protected $prefectures;
     protected $adminLevels;
     protected $accountService;
+    protected $inquiryService;
 
-    public function __construct(AccountService $accountService)
+    public function __construct(AccountService $accountService, InquiryService $inquiryService)
     {
         $this->prefectures = config('const.prefecture');
         $this->adminLevels = config('const.admin_level');
         $this->accountService = $accountService;
+        $this->inquiryService = $inquiryService; 
     }
 
-    public function index(Request $request, InquiryController $inquiryController)
+    public function index(Request $request)
     {
         $user = auth()->user();
         $readNotificationIds = NotificationRead::where('user_id', $user->id)
@@ -36,8 +39,9 @@ class AccountController extends Controller
 
         $notifications = Notification::orderBy('id', 'desc')
             ->paginate(5, ['*'], 'dashboard_page');
-        $unresolvedInquiryCount = $inquiryController->unresolvedInquiryCount();
-        $unresolvedInquiries = $inquiryController->unresolvedInquiries('inquiry_page');
+
+        $unresolvedInquiryCount = $this->inquiryService->unresolvedInquiryCount();
+        $unresolvedInquiries = $this->inquiryService->unresolvedInquiries();
 
         return view('account.Dashboard', compact('notifications', 'readNotificationIds', 'unresolvedInquiryCount', 'unresolvedInquiries'));
     }

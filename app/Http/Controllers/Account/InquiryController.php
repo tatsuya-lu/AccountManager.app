@@ -70,18 +70,6 @@ class InquiryController extends Controller
         return view('account.InquiryList', compact('inquiries', 'sort'));
     }
 
-    public function unresolvedInquiryCount()
-    {
-        return Post::where('status', 'default')->count();
-    }
-
-    public function unresolvedInquiries()
-    {
-        return Post::where('status', 'default')
-            ->orderBy('created_at', 'desc')
-            ->paginate(5, ['*'], 'page');
-    }
-
     public function edit(Post $inquiry)
     {
         $statusOptions = Config::get('const.status');
