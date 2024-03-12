@@ -21,8 +21,7 @@ class InquiryController extends Controller
 
     public function index(Request $request)
     {
-        $query = $this->inquiryService->index($request);
-        $inquiries = $query->paginate(20);
+        $inquiries = $this->inquiryService->index($request);
 
         foreach ($inquiries as $inquiry) {
             $inquiry->status = config('const.status')[$inquiry->status] ?? $inquiry->status;

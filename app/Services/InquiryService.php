@@ -25,40 +25,42 @@ class InquiryService
                 break;
         }
 
-        if ($searchStatus = $request->input('search_status')) {
-            $statusValue = null;
+        $inquiries = $query->where(function ($query) use ($request) {
+            if ($searchStatus = $request->input('search_status')) {
+                $statusValue = null;
 
-            switch ($searchStatus) {
-                case '未対応':
-                    $statusValue = 'default';
-                    break;
-                case '対応中':
-                    $statusValue = 'checking';
-                    break;
-                case '対応済み':
-                    $statusValue = 'checked';
-                    break;
-                case 'default':
-                case 'checking':
-                case 'checked':
-                    $statusValue = $searchStatus;
-                    break;
+                switch ($searchStatus) {
+                    case '未対応':
+                        $statusValue = 'default';
+                        break;
+                    case '対応中':
+                        $statusValue = 'checking';
+                        break;
+                    case '対応済み':
+                        $statusValue = 'checked';
+                        break;
+                    case 'default':
+                    case 'checking':
+                    case 'checked':
+                        $statusValue = $searchStatus;
+                        break;
+                }
+
+                if ($statusValue !== null) {
+                    $query->where('status', $statusValue);
+                }
             }
 
-            if ($statusValue !== null) {
-                $query->where('status', $statusValue);
+            if ($searchCompany = $request->input('search_company')) {
+                $query->where('company', 'LIKE', "%{$searchCompany}%");
             }
-        }
 
-        if ($searchCompany = $request->input('search_company')) {
-            $query->where('company', 'LIKE', "%{$searchCompany}%");
-        }
+            if ($searchTel = $request->input('search_tel')) {
+                $query->where('tel', 'LIKE', "%{$searchTel}%");
+            }
+        })->paginate(20);
 
-        if ($searchTel = $request->input('search_tel')) {
-            $query->where('tel', 'LIKE', "%{$searchTel}%");
-        }
-
-        return $query;
+        return $inquiries;
     }
     
     public function unresolvedInquiryCount()
