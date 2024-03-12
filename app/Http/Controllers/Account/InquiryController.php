@@ -21,7 +21,12 @@ class InquiryController extends Controller
 
     public function index(Request $request)
     {
-        $inquiries = $this->inquiryService->index($request);
+        $query = $this->inquiryService->index($request);
+        $inquiries = $query->paginate(20);
+
+        foreach ($inquiries as $inquiry) {
+            $inquiry->status = config('const.status')[$inquiry->status] ?? $inquiry->status;
+        }
 
         return view('account.InquiryList', compact('inquiries'));
     }
