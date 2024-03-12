@@ -65,6 +65,11 @@ class AccountController extends Controller
     {
         $users = $this->accountService->accountList($request);
 
+        foreach ($users as $user) {
+            $user->prefecture = config('const.prefecture.' . $user->prefecture);
+            $user->admin_level = $user->admin_level == 1 ? '管理者' : ($user->admin_level == 2 ? '社員' : '');
+        }
+
         return view('account.AccountList', compact('users'));
     }
 
