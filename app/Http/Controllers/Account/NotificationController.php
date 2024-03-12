@@ -21,19 +21,10 @@ class NotificationController extends Controller
 
     public function show(Request $request, Notification $notification)
     {
-        $user = $request->user();
+        $notificationData = $this->notificationService->show($notification);
 
-        if (!$user) {
+        if ($notificationData === null) {
             abort(403, '権限がないためこの操作を実行できません。');
-        }
-
-        $notificationRead = NotificationRead::where('user_id', $user->id)
-            ->where('notification_id', $notification->id)
-            ->first();
-
-        if ($notificationRead) {
-            $notificationRead->read = true;
-            $notificationRead->save();
         }
 
         return view('account.Notification', compact('notification'));

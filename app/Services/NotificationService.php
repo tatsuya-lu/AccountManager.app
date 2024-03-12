@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Notification;
 use App\Models\NotificationRead;
 use App\Models\Account;
@@ -21,6 +22,30 @@ class NotificationService
         }
 
         return $notification;
+    }
+
+    public function show(Notification $notification)
+    {
+        $user = Auth::user();
+
+        if (!$user) {
+            return null; 
+        }
+        
+        $this->markNotificationAsRead($user, $notification);
+        return $notification;
+    }
+
+    private function markNotificationAsRead($user, $notification)
+    {
+        $notificationRead = NotificationRead::where('user_id', $user->id)
+            ->where('notification_id', $notification->id)
+            ->first();
+
+        if ($notificationRead) {
+            $notificationRead->read = true;
+            $notificationRead->save();
+        }
     }
 
     public function getNotificationsForDashboard()
