@@ -19,9 +19,9 @@ class InquiryController extends Controller
         $this->inquiryService = $inquiryService; 
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $inquiries = $this->inquiryService->index($request);
+        $inquiries = $this->inquiryService->index();
 
         foreach ($inquiries as $inquiry) {
             $inquiry->status = config('const.status')[$inquiry->status] ?? $inquiry->status;

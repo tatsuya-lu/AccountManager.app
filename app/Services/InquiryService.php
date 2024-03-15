@@ -3,13 +3,16 @@
 namespace App\Services;
 
 use App\Models\Post;
+use Illuminate\Http\Request;
 
 class InquiryService
 {
 
-    public function index($request)
+    public function __construct(private Request $request){}
+
+    public function index()
     {
-        $sort = $request->input('sort', 'newest');
+        $sort = $this->request->input('sort', 'newest');
 
         $query = Post::query();
 
@@ -25,8 +28,8 @@ class InquiryService
                 break;
         }
 
-        $inquiries = $query->where(function ($query) use ($request) {
-            if ($searchStatus = $request->input('search_status')) {
+        $inquiries = $query->where(function ($query) {
+            if ($searchStatus = $this->request->input('search_status')) {
                 $statusValue = null;
 
                 switch ($searchStatus) {
@@ -51,11 +54,11 @@ class InquiryService
                 }
             }
 
-            if ($searchCompany = $request->input('search_company')) {
+            if ($searchCompany = $this->request->input('search_company')) {
                 $query->where('company', 'LIKE', "%{$searchCompany}%");
             }
 
-            if ($searchTel = $request->input('search_tel')) {
+            if ($searchTel = $this->request->input('search_tel')) {
                 $query->where('tel', 'LIKE', "%{$searchTel}%");
             }
         })->paginate(20);
