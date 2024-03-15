@@ -61,9 +61,9 @@ class AccountController extends Controller
         }
     }
 
-    public function accountList(Request $request)
+    public function accountList()
     {
-        $users = $this->accountService->accountList($request);
+        $users = $this->accountService->accountList();
 
         foreach ($users as $user) {
             $user->prefecture = config('const.prefecture.' . $user->prefecture);

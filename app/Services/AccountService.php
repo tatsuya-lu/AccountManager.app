@@ -9,10 +9,7 @@ use App\Models\Account;
 class AccountService
 {
 
-    public function __construct(private Request $request)
-    {
-        $this->request = $request;
-    }
+    public function __construct(private Request $request){}
 
     public function accountList()
     {
