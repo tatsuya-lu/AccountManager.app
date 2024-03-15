@@ -59,7 +59,7 @@
             <div class="form-item">
                 <label><span class="required">必須</span>パスワード</label>
                 <input class="form-item-input" type="password" id="password" name="password" value="{{ old('password') }}"
-                    placeholder="八文字以上で入力してください。">
+                    placeholder="八文字以上で入力してください。" autocomplete="new-password">
 
                 @if ($errors->has('password'))
                     <p class="error-message">{{ $errors->first('password') }}</p>
