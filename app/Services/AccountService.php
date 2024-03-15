@@ -3,14 +3,20 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use App\Models\Account;
 
 class AccountService
 {
 
-    public function accountList($request)
+    public function __construct(private Request $request)
     {
-        $sort = $request->input('sort', 'newest');
+        $this->request = $request;
+    }
+
+    public function accountList()
+    {
+        $sort = $this->request->input('sort', 'newest');
 
         $query = Account::query();
 
@@ -26,19 +32,19 @@ class AccountService
                 break;
         }
 
-        $users = $query->where(function ($query) use ($request) {
-            if ($searchName = $request->input('search_name')) {
+        $users = $query->where(function ($query) {
+            if ($searchName = $this->request->input('search_name')) {
                 $query->where('name', 'LIKE', '%' . $searchName . '%');
             }
 
-            if ($searchAdminLevel = $request->input('search_admin_level')) {
+            if ($searchAdminLevel = $this->request->input('search_admin_level')) {
                 $adminLevelValue = is_numeric($searchAdminLevel) ? $searchAdminLevel : ($searchAdminLevel == '社員' ? 1 : ($searchAdminLevel == '管理者' ? 2 : null));
                 if ($adminLevelValue !== null) {
                     $query->where('admin_level', $adminLevelValue);
                 }
             }
 
-            if ($searchEmail = $request->input('search_email')) {
+            if ($searchEmail = $this->request->input('search_email')) {
                 $query->where('email', 'LIKE', '%' . $searchEmail . '%');
             }
         })->paginate(20);
