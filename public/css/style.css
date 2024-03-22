@@ -348,6 +348,7 @@ header {
 .button-aria button {
     margin-bottom: 15px;
     color: #fff;
+    white-space: nowrap; 
 }
 
 /*--ここまでダッシュボード画面--*/
