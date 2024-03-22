@@ -69,7 +69,7 @@
                 <a href="{{ route('inquiry.list') }}"><button><span
                             class="fa-solid fa-envelopes-bulk"></span>お問い合わせ一覧</button></a>
                 <a href="{{ route('contact.index') }}"><button><span
-                            class="fa-solid fa-up-right-from-square"></span>お問い合わせ登録</button></a>
+                            class="fa-solid fa-up-right-from-square"></span>お問い合わせの登録へ</button></a>
             </div>
 
         </div>
