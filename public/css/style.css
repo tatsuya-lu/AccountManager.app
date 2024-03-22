@@ -351,6 +351,12 @@ header {
     white-space: nowrap; 
 }
 
+@media screen and (max-width: 1300px) {
+    .button-aria {
+        grid-template-columns: 1fr; 
+    }
+}
+
 /*--ここまでダッシュボード画面--*/
 
 /*--ここからアカウント登録画面--*/
