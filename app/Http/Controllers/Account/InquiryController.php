@@ -16,7 +16,7 @@ class InquiryController extends Controller
 
     public function __construct(InquiryService $inquiryService)
     {
-        $this->inquiryService = $inquiryService; 
+        $this->inquiryService = $inquiryService;
     }
 
     public function index()
@@ -33,12 +33,13 @@ class InquiryController extends Controller
     public function edit(Post $inquiry)
     {
         $statusOptions = Config::get('const.status');
-        $inquiry->status = $statusOptions[$inquiry->status] ?? $inquiry->status;
+        $inquiryStatus = $statusOptions[$inquiry->status] ?? $inquiry->status;
         $inquiry->gender = config('const.gender.' . $inquiry->gender);
         $inquiry->profession = config('const.profession.' . $inquiry->profession);
 
-        return view('account.InquiryEdit', compact('inquiry', 'statusOptions'));
+        return view('account.InquiryEdit', compact('inquiry', 'statusOptions', 'inquiryStatus'));
     }
+
 
     public function update(InquiryRequest $request, Post $inquiry)
     {
