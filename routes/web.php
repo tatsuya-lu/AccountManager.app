@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 
 //ログイン処理
-Route::get('/login', [LoginController::class, 'show'])->middleware('guest:admin');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/', [LoginController::class, 'show'])->middleware('guest:admin');
+Route::post('/', [LoginController::class, 'login'])->name('login');
 
 //ログアウト処理
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
