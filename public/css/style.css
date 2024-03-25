@@ -348,12 +348,12 @@ header {
 .button-aria button {
     margin-bottom: 15px;
     color: #fff;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 1300px) {
     .button-aria {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 }
 
@@ -573,6 +573,7 @@ table td {
     align-items: center;
     max-width: fit-content;
     height: 40px;
+    white-space: nowrap;
 }
 
 .new-register-btn:hover {
@@ -617,7 +618,7 @@ table td {
 }
 
 .search-form-item {
-    margin-right: 25px;
+    margin-right: 22px;
 }
 
 .search-form select {
@@ -683,6 +684,18 @@ select.minimal:focus {
 select:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #000;
+}
+
+@media screen and (max-width: 1300px) {
+    .search-form-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .search-form-item {
+        margin-right: 18px;
+    }
 }
 
 /*--ここまで検索機能--*/
